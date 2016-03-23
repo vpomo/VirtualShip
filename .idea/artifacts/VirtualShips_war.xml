@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="VirtualShips:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="virtualships.war">
+      <element id="artifact" artifact-name="VirtualShips:war exploded" />
+    </root>
+  </artifact>
+</component>
