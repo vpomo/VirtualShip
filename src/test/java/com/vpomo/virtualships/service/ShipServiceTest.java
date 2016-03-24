@@ -1,32 +1,16 @@
 package com.vpomo.virtualships.service;
-import com.vpomo.virtualships.model.Ship;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-
-package com.vpomo.virtualships.model.Ship;
-        packa com.vpomo.virtualships.model.Ship;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * Created by Pomogalov on 23.03.2016.
  */
-public class ShipServiceTest {
-    @Autowired
-    protected ShipService shipService;
 
-    public Ship ship1 = new Ship("TypeA");
+@ContextConfiguration(locations = {"classpath:spring/business-config.xml"})
+@RunWith(SpringJUnit4ClassRunner.class)
 
-    @Before
-    public void shouldShipService() {
-
-        System.out.println(" ===== Before test passed  ==== ");
-    }
-
-    @Test
-    public void testNextMove() {
-        shipService.nextMove(ship1, 1, 1);
-        System.out.println(" ===== test nextMove() passed  ==== ");
-    }
+public class ShipServiceTest extends AbstractShipServiceTest {
 
 }

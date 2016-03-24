@@ -1,5 +1,7 @@
 package com.vpomo.virtualships.model;
 
+import java.util.Random;
+
 /**
  * Created by Pomogalov on 22.03.2016.
  */
@@ -9,6 +11,7 @@ public class Ship {
     private int coordinateY;
     private String color;
     private String kind;
+    public static final int MAX_SIZE_SQUARE = 256;
 
     public void setCoordinateX(int coordinateX) {
         this.coordinateX = coordinateX;
@@ -44,6 +47,9 @@ public class Ship {
 
     public Ship(String kind){
         this.kind = kind;
+        Random rand = new Random();
+        this.coordinateX = rand.nextInt(MAX_SIZE_SQUARE);
+        this.coordinateY = rand.nextInt(MAX_SIZE_SQUARE);
     }
 
     @Override
