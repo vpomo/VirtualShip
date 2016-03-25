@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb5b25e2-c44c-424b-8d8b-61c19d517670" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/vpomo/virtualships/service/AbstractShipServiceTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/DispatchingService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/DispatchingServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/ThreadService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/ThreadServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/model/Ship.java" afterPath="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/model/Ship.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/ShipService.java" afterPath="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/ShipService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/ShipServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/ShipServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/vpomo/virtualships/service/ShipServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/vpomo/virtualships/service/ShipServiceTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/SquareService.java" afterPath="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/SquareService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/vpomo/virtualships/service/AbstractShipServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/vpomo/virtualships/service/AbstractShipServiceTest.java" />
     </list>
     <ignored path="VirtualShips.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,41 +33,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Ship.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/model/Ship.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="50" column="55" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ShipService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/ShipService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+            <state relative-caret-position="170">
+              <caret line="10" column="56" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShipServiceImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ShipServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/ShipServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1250">
-              <caret line="62" column="22" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
+            <state relative-caret-position="3296">
+              <caret line="195" column="22" selection-start-line="195" selection-start-column="22" selection-end-line="195" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -72,11 +55,51 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="DispatchingService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/DispatchingService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DispatchingServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/DispatchingServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ThreadService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/ThreadService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ThreadServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/ThreadServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AbstractShipServiceTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/vpomo/virtualships/service/AbstractShipServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="65" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="65" />
+            <state relative-caret-position="374">
+              <caret line="41" column="15" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -97,8 +120,8 @@
       <file leaf-file-name="SquareService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/SquareService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+            <state relative-caret-position="102">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -139,10 +162,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/model/Square.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/SquareServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/vpomo/virtualships/service/ShipServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/vpomo/virtualships/service/AbstractShipServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/model/Ship.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/ShipService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/ShipServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/vpomo/virtualships/service/AbstractShipServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/SquareService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/DispatchingService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/DispatchingServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/ThreadService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/ThreadServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -374,9 +402,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -842,43 +870,45 @@
       <workItem from="1458776280026" duration="2896000" />
       <workItem from="1458796423170" duration="7386000" />
       <workItem from="1458809020566" duration="1785000" />
+      <workItem from="1458862388374" duration="5709000" />
+      <workItem from="1458893817855" duration="2617000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="com_vpomo_virtualships_service_in_VirtualShips - 2016.03.24 at 08h 54m 51s.xml">
+    <history-entry file="com_vpomo_virtualships_service_in_VirtualShips - 2016.03.25 at 09h 30m 15s.xml">
       <configuration name="com.vpomo.virtualships.service in VirtualShips" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="com_vpomo_virtualships_service_in_VirtualShips - 2016.03.24 at 09h 09m 51s.xml">
+    <history-entry file="com_vpomo_virtualships_service_in_VirtualShips - 2016.03.25 at 09h 36m 03s.xml">
       <configuration name="com.vpomo.virtualships.service in VirtualShips" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="com_vpomo_virtualships_service_in_VirtualShips - 2016.03.24 at 09h 12m 36s.xml">
+    <history-entry file="com_vpomo_virtualships_service_in_VirtualShips - 2016.03.25 at 09h 36m 40s.xml">
       <configuration name="com.vpomo.virtualships.service in VirtualShips" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="com_vpomo_virtualships_service_in_VirtualShips - 2016.03.24 at 09h 15m 27s.xml">
+    <history-entry file="com_vpomo_virtualships_service_in_VirtualShips - 2016.03.25 at 09h 41m 09s.xml">
       <configuration name="com.vpomo.virtualships.service in VirtualShips" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="com_vpomo_virtualships_service_in_VirtualShips - 2016.03.24 at 09h 16m 45s.xml">
+    <history-entry file="com_vpomo_virtualships_service_in_VirtualShips - 2016.03.25 at 09h 47m 49s.xml">
       <configuration name="com.vpomo.virtualships.service in VirtualShips" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="com_vpomo_virtualships_service_in_VirtualShips - 2016.03.24 at 09h 17m 15s.xml">
+    <history-entry file="com_vpomo_virtualships_service_in_VirtualShips - 2016.03.25 at 09h 52m 10s.xml">
       <configuration name="com.vpomo.virtualships.service in VirtualShips" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="com_vpomo_virtualships_service_in_VirtualShips - 2016.03.24 at 09h 20m 20s.xml">
+    <history-entry file="com_vpomo_virtualships_service_in_VirtualShips - 2016.03.25 at 09h 59m 13s.xml">
       <configuration name="com.vpomo.virtualships.service in VirtualShips" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="com_vpomo_virtualships_service_in_VirtualShips - 2016.03.24 at 09h 22m 34s.xml">
+    <history-entry file="com_vpomo_virtualships_service_in_VirtualShips - 2016.03.25 at 10h 01m 41s.xml">
       <configuration name="com.vpomo.virtualships.service in VirtualShips" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="com_vpomo_virtualships_service_in_VirtualShips - 2016.03.24 at 09h 27m 23s.xml">
+    <history-entry file="com_vpomo_virtualships_service_in_VirtualShips - 2016.03.25 at 10h 01m 59s.xml">
       <configuration name="com.vpomo.virtualships.service in VirtualShips" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="com_vpomo_virtualships_service_in_VirtualShips - 2016.03.24 at 14h 32m 51s.xml">
+    <history-entry file="com_vpomo_virtualships_service_in_VirtualShips - 2016.03.25 at 10h 09m 20s.xml">
       <configuration name="com.vpomo.virtualships.service in VirtualShips" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19313000" />
+    <option name="totallyTimeSpent" value="27639000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="506" y="12" width="1400" height="1000" extended-state="0" />
@@ -886,14 +916,12 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -905,12 +933,14 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1251,34 +1281,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/model/Square.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/SquareService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/SquareServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="56" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/vpomo/virtualships/service/ShipServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="61" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/junit/framework/Assert.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1292,29 +1305,85 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/ShipService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        <state relative-caret-position="170">
+          <caret line="10" column="56" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/vpomo/virtualships/service/AbstractShipServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="65" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="65" />
+        <state relative-caret-position="374">
+          <caret line="41" column="15" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/model/Square.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/ShipServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1250">
-          <caret line="62" column="22" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
+        <state relative-caret-position="3296">
+          <caret line="195" column="22" selection-start-line="195" selection-start-column="22" selection-end-line="195" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/SquareServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="56" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/SquareService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/DispatchingService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/DispatchingServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/ThreadService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vpomo/virtualships/service/ThreadServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

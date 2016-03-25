@@ -17,7 +17,7 @@ public class ShipServiceImpl implements ShipService{
         int currentCoordinateX, nextCoordinateX;
         int currentCoordinateY, nextCoordinateY;
         String typeShip;
-        int moveShip;
+        int directionMoveShip;
         Random nextMove = new Random();
 
         currentCoordinateX = ship.getCoordinateX();
@@ -25,13 +25,13 @@ public class ShipServiceImpl implements ShipService{
         typeShip = ship.getKind();
 
         if (typeShip.equals("typeA")) {
-            moveShip = nextMove.nextInt(8);
+            directionMoveShip = nextMove.nextInt(8);
         } else {
-            moveShip = nextMove.nextInt(4);
+            directionMoveShip = nextMove.nextInt(4);
         }
 
-        nextCoordinateX = currentCoordinateX + nextMoveX(typeShip, moveShip, currentCoordinateX);
-        nextCoordinateY = currentCoordinateY + nextMoveY(typeShip, moveShip, currentCoordinateY);
+        nextCoordinateX = currentCoordinateX + nextMoveX(typeShip, directionMoveShip, currentCoordinateX);
+        nextCoordinateY = currentCoordinateY + nextMoveY(typeShip, directionMoveShip, currentCoordinateY);
 
         ship.setCoordinateX(nextCoordinateX);
         ship.setCoordinateY(nextCoordinateY);
@@ -39,38 +39,43 @@ public class ShipServiceImpl implements ShipService{
     }
 
 /**
- * moveShip - variants of the ship movements for typeA
+ * directionMovement - variants of the ship movements for typeA
  * 0 - Up + Left; 1 - Up + Middle; 2- //Up + Right
  * 3 - Horizontally + Right;
  * 4 - Down + Right; 5 - Down + Middle; 6 - Down + Left;
  * 7 - Horizontally + Left;
  *
- * moveShip - variants of the ship movements for typeD
+ * directionMovement - variants of the ship movements for typeD
  * 0 - Up + Left; 1- //Up + Right
  * 2 - Down + Right; 3 - Down + Left;
  *
- * moveShip - variants of the ship movements for typeP
+ * directionMovement - variants of the ship movements for typeP
  * 0 - Up + Middle;
  * 1 - Horizontally + Right;
  * 2 - Down + Middle;
  * 3 - Horizontally + Left;
  *
  */
-    public int nextMoveX(String typeShip, int moveShip, int currentX) {
+    public int nextMoveX(String typeShip, int directionMovement, int currentX) {
         int moveX = 0;
         if (typeShip.equals("typeA")) {
-            switch (moveShip) {
-                case 0, 6, 7:
+            switch (directionMovement) {
+                case 0:
+                case 6:
+                case 7:
                     if (currentX == 0){
                         moveX = 1;
                     } else {
                         moveX = -1;
                     }
                     break;
-                case 1, 5:
+                case 1:
+                case 5:
                     moveX = 0;
                     break;
-                case 2, 3, 4:
+                case 2:
+                case 3:
+                case 4:
                     if (currentX == (MAX_SIZE_SQUARE-1)){
                         moveX = -1;
                     } else {
@@ -82,15 +87,17 @@ public class ShipServiceImpl implements ShipService{
             }
         }
         if (typeShip.equals("typeD")) {
-            switch (moveShip) {
-                case 0, 3:
+            switch (directionMovement) {
+                case 0:
+                case 3:
                     if (currentX == 0){
                         moveX = 1;
                     } else {
                         moveX = -1;
                     }
                     break;
-                case 1, 2:
+                case 1:
+                case 2:
                     if (currentX == (MAX_SIZE_SQUARE-1)){
                         moveX = -1;
                     } else {
@@ -102,8 +109,9 @@ public class ShipServiceImpl implements ShipService{
             }
         }
         if (typeShip.equals("typeP")) {
-            switch (moveShip) {
-                case 0, 2:
+            switch (directionMovement) {
+                case 0:
+                case 2:
                     moveX = 0;
                     break;
                 case 1:
@@ -127,21 +135,26 @@ public class ShipServiceImpl implements ShipService{
         return moveX;
     }
 
-    public int nextMoveY(String typeShip, int moveShip, int currentY) {
+    public int nextMoveY(String typeShip, int directionMovement, int currentY) {
         int moveY = 0;
         if (typeShip.equals("typeA")) {
-            switch (moveShip) {
-                case 0, 1, 2:
+            switch (directionMovement) {
+                case 0:
+                case 1:
+                case 2:
                     if (currentY == 0){
                         moveY = 1;
                     } else {
                         moveY = -1;
                     }
                     break;
-                case 3, 7:
+                case 3:
+                case 7:
                     moveY = 0;
                     break;
-                case 4, 5, 6:
+                case 4:
+                case 5:
+                case 6:
                     if (currentY == (MAX_SIZE_SQUARE-1)){
                         moveY = -1;
                     } else {
@@ -153,15 +166,17 @@ public class ShipServiceImpl implements ShipService{
             }
         }
         if (typeShip.equals("typeD")) {
-            switch (moveShip) {
-                case 0, 1:
+            switch (directionMovement) {
+                case 0:
+                case 1:
                     if (currentY == 0){
                         moveY = 1;
                     } else {
                         moveY = -1;
                     }
                     break;
-                case 2, 3:
+                case 2:
+                case 3:
                     if (currentY == (MAX_SIZE_SQUARE-1)){
                         moveY = -1;
                     } else {
@@ -173,11 +188,12 @@ public class ShipServiceImpl implements ShipService{
             }
         }
         if (typeShip.equals("typeP")) {
-            switch (moveShip) {
-                case 1, 2:
+            switch (directionMovement) {
+                case 1:
+                case 3:
                     moveY = 0;
                     break;
-                case 3:
+                case 2:
                     if (currentY == (MAX_SIZE_SQUARE-1)){
                         moveY = -1;
                     } else {

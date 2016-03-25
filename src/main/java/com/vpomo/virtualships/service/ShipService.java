@@ -7,6 +7,6 @@ import com.vpomo.virtualships.model.Ship;
  */
 public interface ShipService {
     void nextMove(Ship ship);
-    nextMoveX(String typeShip, int moveShip, int currentX);
-    nextMoveY(String typeShip, int moveShip, int currentY);
+    int nextMoveX(String typeShip, int directionMovement, int currentX);
+    int nextMoveY(String typeShip, int directionMovement, int currentY);
 }
