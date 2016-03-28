@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.Random;
 
 import static com.vpomo.virtualships.model.Ship.MAX_SIZE_SQUARE;
+import static com.vpomo.virtualships.model.Square.MAX_SIZE_SQUARE;
 
 /**
  * Created by Pomogalov on 22.03.2016.

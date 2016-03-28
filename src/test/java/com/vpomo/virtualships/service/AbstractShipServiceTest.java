@@ -1,11 +1,12 @@
 package com.vpomo.virtualships.service;
 
 import com.vpomo.virtualships.model.Ship;
+import com.vpomo.virtualships.model.Square;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static com.vpomo.virtualships.model.Ship.MAX_SIZE_SQUARE;
+import static com.vpomo.virtualships.model.Square.MAX_SIZE_SQUARE;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
 
@@ -28,8 +29,9 @@ public abstract class AbstractShipServiceTest {
         int coordinateX1, coordinateY1;
         int coordinateX2, coordinateY2;
         int changeCoordinate;
+        Square square = new Square();
         System.out.println(" ===== test nextMove() started  ==== ");
-        Ship shipTest = new Ship("typeA");
+        Ship shipTest = new Ship("typeA",square);
         coordinateX1 = shipTest.getCoordinateX();
         coordinateY1 = shipTest.getCoordinateY();
         this.shipService.nextMove(shipTest);

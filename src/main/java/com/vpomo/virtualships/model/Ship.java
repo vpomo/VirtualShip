@@ -2,6 +2,8 @@ package com.vpomo.virtualships.model;
 
 import java.util.Random;
 
+import static com.vpomo.virtualships.model.Square.MAX_SIZE_SQUARE;
+
 /**
  * Created by Pomogalov on 22.03.2016.
  */
@@ -10,8 +12,9 @@ public class Ship {
     private int coordinateX;
     private int coordinateY;
     private String color;
-    private String kind;
-    public static final int MAX_SIZE_SQUARE = 256;
+    private String typeShip;
+    private Square square;
+
 
     public void setCoordinateX(int coordinateX) {
         this.coordinateX = coordinateX;
@@ -25,8 +28,8 @@ public class Ship {
         this.color = color;
     }
 
-    public void setKind(String kind) {
-        this.kind = kind;
+    public void setTypeShip(String typeShip) {
+        this.typeShip = typeShip;
     }
 
     public int getCoordinateX() {
@@ -41,19 +44,35 @@ public class Ship {
         return color;
     }
 
-    public String getKind() {
-        return kind;
+    public String getTypeShip() {
+        return typeShip;
     }
 
-    public Ship(String kind){
-        this.kind = kind;
+    public Ship(String typeShip, Square square){
+        this.typeShip = typeShip;
         Random rand = new Random();
         this.coordinateX = rand.nextInt(MAX_SIZE_SQUARE);
         this.coordinateY = rand.nextInt(MAX_SIZE_SQUARE);
+        this.square = square;
+        switch (typeShip) {
+            case "typeA":
+                this.color = "#FFFFFF";
+                break;
+            case "typeD":
+                this.color = "#FFFFFF";
+                break;
+            case "typeP":
+                this.color = "#FFFFFF";
+                break;
+            default:
+                break;
+        }
+        square.setColorCell(coordinateX, coordinateY, color);
+        square.setNumberTimesToChangeColorCell(coordinateX, coordinateY, 5);
     }
 
     @Override
     public String toString(){
-        return "Ships{" + "kind=" + kind + ", color=" + color + '}';
+        return "Ships{" + "typeShip=" + typeShip + ", color=" + color + '}';
     }
 }
