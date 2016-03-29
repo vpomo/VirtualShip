@@ -5,7 +5,7 @@ package com.vpomo.virtualships.service;
  */
 public interface DispatchingService {
     public static final int MAX_NUMBER_SHIPS = 5;
-    void startMovingShips(int numberShipTypeA, int numberShipTypeD, int numberShipTypeP);
+    void startMovingShips(int numberShipTypeA, int numberShipTypeD, int numberShipTypeP) throws InterruptedException;
     void stopMovingShip();
 
 }

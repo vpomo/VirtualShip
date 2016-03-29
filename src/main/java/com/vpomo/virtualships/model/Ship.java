@@ -68,7 +68,7 @@ public class Ship {
                 break;
         }
         square.setColorCell(coordinateX, coordinateY, color);
-        square.setNumberTimesToChangeColorCell(coordinateX, coordinateY, 5);
+        square.setNumberTimesCell(coordinateX, coordinateY, 5);
     }
 
     @Override

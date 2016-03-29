@@ -41,7 +41,7 @@ public class CellSquare {
         this.numberTimesToChangeColor = numberTimesToChangeColor;
     }
 
-    CellSquare(int currentCoordinateX, int currentCoordinateY) {
+    public CellSquare(int currentCoordinateX, int currentCoordinateY) {
         this.coordinateX = currentCoordinateX;
         this.coordinateY = currentCoordinateY;
     }

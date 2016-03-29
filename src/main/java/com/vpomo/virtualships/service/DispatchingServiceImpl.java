@@ -1,45 +1,41 @@
 package com.vpomo.virtualships.service;
 
 import com.vpomo.virtualships.model.Square;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by Pomogalov on 25.03.2016.
  */
+@Service
 public class DispatchingServiceImpl implements DispatchingService {
     private Square square;
-    private boolean arraySuspendFlagShipA[];
-    private boolean arraySuspendFlagShipD[];
-    private boolean arraySuspendFlagShipP[];
+    private Flag flag;
 
-    public DispatchingServiceImpl() {
-        this.square = new Square();
-        this.arraySuspendFlagShipA = new boolean[MAX_NUMBER_SHIPS];
-        this.arraySuspendFlagShipD = new boolean[MAX_NUMBER_SHIPS];
-        this.arraySuspendFlagShipP = new boolean[MAX_NUMBER_SHIPS];
-        for (int n = 0; n < MAX_NUMBER_SHIPS; n++) {
-            this.arraySuspendFlagShipA[n] = true;
-            this.arraySuspendFlagShipD[n] = true;
-            this.arraySuspendFlagShipP[n] = true;
+    public void startMovingShips(int numberShipTypeA, int numberShipTypeD, int numberShipTypeP) throws InterruptedException {
+        flag = new Flag();
+        String threadName = "";
+        System.out.println("Один");
+
+        if (square == null) {
+            square = new Square();
         }
-    }
-
-    public void startMovingShips(int numberShipTypeA, int numberShipTypeD, int numberShipTypeP) {
-
-            if (numberShipTypeA > 0) {
-                for (int n = numberShipTypeA; n > 0; n--) {
-                    this.arraySuspendFlagShipA[n] = false;
-
-                }
-            }
-
+        System.out.println("Два");
+        if (numberShipTypeA > 0) {
+           for (int n = numberShipTypeA; n > 0; n--) {
+               threadName = "typeA-" + n;
+               System.out.println(threadName);
+               //new ThreadShip(threadName, "typeA", flag, square);
+           }
+        }
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            System.out.println("Interrrupted");
+        }
+        flag.stopMoving = true;
     }
 
     public void stopMovingShip() {
-        for (int n = 0; n < MAX_NUMBER_SHIPS; n++) {
-            this.arraySuspendFlagShipA[n] = true;
-            this.arraySuspendFlagShipD[n] = true;
-            this.arraySuspendFlagShipP[n] = true;
-        }
 
     }
 }

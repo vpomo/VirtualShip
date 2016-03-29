@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Random;
 
-import static com.vpomo.virtualships.model.Ship.MAX_SIZE_SQUARE;
 import static com.vpomo.virtualships.model.Square.MAX_SIZE_SQUARE;
 
 /**
@@ -23,7 +22,7 @@ public class ShipServiceImpl implements ShipService{
 
         currentCoordinateX = ship.getCoordinateX();
         currentCoordinateY = ship.getCoordinateY();
-        typeShip = ship.getKind();
+        typeShip = ship.getTypeShip();
 
         if (typeShip.equals("typeA")) {
             directionMoveShip = nextMove.nextInt(8);

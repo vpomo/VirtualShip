@@ -11,11 +11,14 @@ public class Square {
         String colorCell = "#3399FF";
         int numberTimesToChangeColor = 0;
         this.cellSquare = new CellSquare[MAX_SIZE_SQUARE][MAX_SIZE_SQUARE];
+        this.cellSquare[0][0].setColor("red");
 
         for (int i = 0; i < MAX_SIZE_SQUARE; i++) {
             for (int j = 0; j < MAX_SIZE_SQUARE; j ++) {
-                setColorCell(i,j, colorCell);
-                setNumberTimesCell(i,j, numberTimesToChangeColor);
+                this.cellSquare[i][j].setColor(colorCell);
+                this.cellSquare[i][j].setNumberTimesToChangeColor(numberTimesToChangeColor);
+                //setColorCell(i,j, colorCell);
+                //setNumberTimesCell(i,j, numberTimesToChangeColor);
             }
         }
     }
