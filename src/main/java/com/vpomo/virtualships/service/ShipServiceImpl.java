@@ -1,6 +1,7 @@
 package com.vpomo.virtualships.service;
 
 import com.vpomo.virtualships.model.Ship;
+import com.vpomo.virtualships.model.Square;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
@@ -13,21 +14,35 @@ import static com.vpomo.virtualships.model.Square.MAX_SIZE_SQUARE;
 
 @Service
 public class ShipServiceImpl implements ShipService{
-    public void nextMove(Ship ship) {
+
+    public void nextMove(Ship ship, Square square) {
         int currentCoordinateX, nextCoordinateX;
         int currentCoordinateY, nextCoordinateY;
         String typeShip;
-        int directionMoveShip;
+        String color = "ZZ";
+        int directionMoveShip = 10;
         Random nextMove = new Random();
 
         currentCoordinateX = ship.getCoordinateX();
         currentCoordinateY = ship.getCoordinateY();
         typeShip = ship.getTypeShip();
 
-        if (typeShip.equals("typeA")) {
-            directionMoveShip = nextMove.nextInt(8);
-        } else {
-            directionMoveShip = nextMove.nextInt(4);
+        //System.out.println("currentX= " + currentCoordinateX + " currentY= " + currentCoordinateY);
+        switch (typeShip) {
+            case "typeA":
+                directionMoveShip = nextMove.nextInt(8);
+                color = "aa";
+                break;
+            case "typeD":
+                directionMoveShip = nextMove.nextInt(4);
+                color = "dd";
+                break;
+            case "typeP":
+                directionMoveShip = nextMove.nextInt(4);
+                color = "pp";
+                break;
+            default:
+                break;
         }
 
         nextCoordinateX = currentCoordinateX + nextMoveX(typeShip, directionMoveShip, currentCoordinateX);
@@ -35,6 +50,9 @@ public class ShipServiceImpl implements ShipService{
 
         ship.setCoordinateX(nextCoordinateX);
         ship.setCoordinateY(nextCoordinateY);
+        square.setColorCell(nextCoordinateX,nextCoordinateY, color);
+        square.setNumberTimesCell(nextCoordinateX,nextCoordinateY,5);
+        //System.out.println("nextX= " + nextCoordinateX + " nextY= " + nextCoordinateY);
 
     }
 

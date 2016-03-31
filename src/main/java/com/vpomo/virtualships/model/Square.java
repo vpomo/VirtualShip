@@ -4,21 +4,19 @@ package com.vpomo.virtualships.model;
  * Created by Pomogalov on 22.03.2016.
  */
 public class Square {
-    public static final int MAX_SIZE_SQUARE = 256;
+    public static final int MAX_SIZE_SQUARE = 64;
     private CellSquare[][]  cellSquare;
 
     public Square() {
-        String colorCell = "#3399FF";
+        String colorCell = "..";
         int numberTimesToChangeColor = 0;
         this.cellSquare = new CellSquare[MAX_SIZE_SQUARE][MAX_SIZE_SQUARE];
-        this.cellSquare[0][0].setColor("red");
 
         for (int i = 0; i < MAX_SIZE_SQUARE; i++) {
             for (int j = 0; j < MAX_SIZE_SQUARE; j ++) {
+                this.cellSquare[i][j] = new CellSquare(i,j);
                 this.cellSquare[i][j].setColor(colorCell);
                 this.cellSquare[i][j].setNumberTimesToChangeColor(numberTimesToChangeColor);
-                //setColorCell(i,j, colorCell);
-                //setNumberTimesCell(i,j, numberTimesToChangeColor);
             }
         }
     }
@@ -43,11 +41,13 @@ public class Square {
     public String toString(){
         String returnString;
         returnString = "";
+
         for (int i = 0; i < MAX_SIZE_SQUARE; i++) {
             for (int j = 0; j < MAX_SIZE_SQUARE; j++) {
-                returnString = returnString + "cell[" + i + "][" + j + "]=" + getColorCell(i, j) + " ";
+                returnString = returnString + "=" + getColorCell(i, j) + " ";
             }
         }
+
         return returnString;
     }
 

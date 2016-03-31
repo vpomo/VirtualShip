@@ -34,7 +34,7 @@ public abstract class AbstractShipServiceTest {
         Ship shipTest = new Ship("typeA",square);
         coordinateX1 = shipTest.getCoordinateX();
         coordinateY1 = shipTest.getCoordinateY();
-        this.shipService.nextMove(shipTest);
+        this.shipService.nextMove(shipTest, square);
 
         coordinateX2 = shipTest.getCoordinateX();
         coordinateY2 = shipTest.getCoordinateY();

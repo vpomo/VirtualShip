@@ -2,7 +2,6 @@ package com.vpomo.virtualships.service;
 
 import com.vpomo.virtualships.model.Ship;
 import com.vpomo.virtualships.model.Square;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by Pomogalov on 29.03.2016.
@@ -11,37 +10,48 @@ public class ThreadShip implements Runnable {
     private String name;
     private Square square;
     private Thread thread;
-    private Flag flag;
+    private ControlValues controlValues;
     private Ship ship;
+    private ShipServiceImpl shipService;
 
-    @Autowired
-    protected ShipService shipService;
+//    @Autowired
+//    public ThreadShip(ShipService shipService) {
+//        this.shipService = shipService;
+//    }
 
-    ThreadShip (String threadName, String typeShip, Flag flag, Square square) {
+
+    public ThreadShip (String threadName, String typeShip, ControlValues controlValues, int numberTypeShip, int numberThread) {
         this.name = threadName;
         this.square = square;
-        this.flag = flag;
-        ship = new Ship(typeShip, square);
+        this.controlValues = controlValues;
+        this.ship = new Ship(typeShip, square);
+        this.shipService = new ShipServiceImpl();
+        this.square = controlValues.square;
+
         thread = new Thread(this, name);
+        controlValues.arrayThreadShip[numberTypeShip][numberThread] = thread;
         thread.start();
+        System.out.println("Thread " + name + " starting ...");
     }
 
+    @Override
     public void run(){
         try {
             synchronized (square) {
-                while (! flag.stopMoving) {
-                    shipService.nextMove(ship);
-                    thread.sleep(100);
+                while (! controlValues.stopMoving) {
+                    if (this.ship != null) {
+                        //System.out.println("Thread " + name + "  nextMove");
+                        synchronized (square) {
+                            this.shipService.nextMove(this.ship, this.square);
+                        }
+                    }
+                    thread.sleep(10);
                 }
             }
         } catch (InterruptedException e) {
             System.out.println("Thread " + name + "interrupted");
         }
-        System.out.println("Thread " + name + "stopped");
-    }
-
-    synchronized void threadStop() {
-        flag.stopMoving = true;
+        System.out.println("Thread " + name + " stopped");
     }
 
 }
