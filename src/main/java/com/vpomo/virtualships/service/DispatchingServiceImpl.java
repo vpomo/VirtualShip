@@ -10,7 +10,7 @@ import static com.vpomo.virtualships.service.ControlValues.MAX_NUMBER_SHIPS;
  */
 @Service
 public class DispatchingServiceImpl implements DispatchingService {
-    private Square square;
+    public static volatile Square square;
     private ControlValues controlValues;
 
     public void startMovingShips(int numberShipTypeA, int numberShipTypeD, int numberShipTypeP) throws InterruptedException {
@@ -21,7 +21,9 @@ public class DispatchingServiceImpl implements DispatchingService {
             this.controlValues = new ControlValues();
         }
 
-        this.square = controlValues.getSquare();
+        if (square == null) {
+            this.square = new Square();
+        }
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < MAX_NUMBER_SHIPS; j++){
@@ -36,25 +38,19 @@ public class DispatchingServiceImpl implements DispatchingService {
         if ((numberShipTypeA > 0) & (numberShipTypeA < MAX_NUMBER_SHIPS) ) {
            for (int n = numberShipTypeA; n > 0; n--) {
                threadName = "typeA-№" + n;
-               synchronized (square) {
-                   new ThreadShip(threadName, "typeA", this.controlValues, 0, n);
-               }
+               new ThreadShip(threadName, "typeA", this.controlValues, square, 0, n);
            }
         }
         if ((numberShipTypeD > 0) & (numberShipTypeD < MAX_NUMBER_SHIPS)) {
             for (int n = numberShipTypeD; n > 0; n--) {
                 threadName = "typeD-№" + n;
-                synchronized (square) {
-                    new ThreadShip(threadName, "typeD", this.controlValues, 1, n);
-                }
+                new ThreadShip(threadName, "typeD", this.controlValues, square, 1, n);
             }
         }
         if ((numberShipTypeP > 0) & (numberShipTypeP < MAX_NUMBER_SHIPS)) {
             for (int n = numberShipTypeP; n > 0; n--) {
                 threadName = "typeP-№" + n;
-                synchronized (square) {
-                    new ThreadShip(threadName, "typeP", this.controlValues, 2, n);
-                }
+                new ThreadShip(threadName, "typeP", this.controlValues, square, 2, n);
             }
         }
 

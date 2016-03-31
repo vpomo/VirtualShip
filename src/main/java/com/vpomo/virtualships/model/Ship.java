@@ -67,6 +67,9 @@ public class Ship {
             default:
                 break;
         }
+        if (square == null) {
+            System.out.println("!!!! null square");
+        }
         square.setColorCell(coordinateX, coordinateY, color);
         square.setNumberTimesCell(coordinateX, coordinateY, 5);
     }

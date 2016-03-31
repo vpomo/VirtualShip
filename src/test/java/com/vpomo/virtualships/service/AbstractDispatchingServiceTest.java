@@ -23,8 +23,8 @@ public abstract class AbstractDispatchingServiceTest {
         int numberShipTypeP;
         System.out.println(" ===== test startMovingShips(int numberShipTypeA, int numberShipTypeD, int numberShipTypeP) started  ==== ");
         numberShipTypeA = 4;
-        numberShipTypeD = 2;
-        numberShipTypeP = 4;
+        numberShipTypeD = 3;
+        numberShipTypeP = 2;
         this.dispatchingService.startMovingShips(numberShipTypeA, numberShipTypeD, numberShipTypeP);
 
         System.out.println(" ===== test startMovingShips passed  ==== ");

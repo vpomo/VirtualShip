@@ -14,8 +14,9 @@ import static com.vpomo.virtualships.model.Square.MAX_SIZE_SQUARE;
 
 @Service
 public class ShipServiceImpl implements ShipService{
+    private ControlValues controlValues;
 
-    public void nextMove(Ship ship, Square square) {
+    public synchronized void nextMove(Ship ship, Square square) {
         int currentCoordinateX, nextCoordinateX;
         int currentCoordinateY, nextCoordinateY;
         String typeShip;
