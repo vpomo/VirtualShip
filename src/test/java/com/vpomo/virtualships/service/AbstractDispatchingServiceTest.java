@@ -22,13 +22,12 @@ public abstract class AbstractDispatchingServiceTest {
         int numberShipTypeD;
         int numberShipTypeP;
         System.out.println(" ===== test startMovingShips(int numberShipTypeA, int numberShipTypeD, int numberShipTypeP) started  ==== ");
-        numberShipTypeA = 4;
-        numberShipTypeD = 3;
-        numberShipTypeP = 2;
+        numberShipTypeA = 2;
+        numberShipTypeD = 1;
+        numberShipTypeP = 0;
         this.dispatchingService.startMovingShips(numberShipTypeA, numberShipTypeD, numberShipTypeP);
 
         System.out.println(" ===== test startMovingShips passed  ==== ");
     }
-    //startMovingShips(int numberShipTypeA, int numberShipTypeD, int numberShipTypeP)
 
 }

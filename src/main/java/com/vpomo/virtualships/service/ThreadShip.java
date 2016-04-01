@@ -25,7 +25,7 @@ public class ThreadShip implements Runnable {
         this.square = square;
         this.controlValues = controlValues;
         this.ship = new Ship(typeShip, square);
-        this.shipService = new ShipServiceImpl();
+        this.shipService = new ShipServiceImpl(square);
 
         thread = new Thread(this, name);
         controlValues.arrayThreadShip[numberTypeShip][numberThread] = thread;
@@ -36,15 +36,12 @@ public class ThreadShip implements Runnable {
     @Override
     public void run(){
         try {
-            synchronized (square) {
                 while (! controlValues.stopMoving) {
-                    if (this.ship != null) {
-                        //System.out.println("Thread " + name + "  nextMove");
+                    if (ship != null) {
                         shipService.nextMove(ship, square);
                     }
-                    thread.sleep(10);
+                    thread.sleep(100);
                 }
-            }
         } catch (InterruptedException e) {
             System.out.println("Thread " + name + "interrupted");
         }

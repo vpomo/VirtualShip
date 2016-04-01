@@ -2,19 +2,23 @@ package com.vpomo.virtualships.service;
 
 import com.vpomo.virtualships.model.Ship;
 import com.vpomo.virtualships.model.Square;
-import org.springframework.stereotype.Service;
 
 import java.util.Random;
 
-import static com.vpomo.virtualships.model.Square.MAX_SIZE_SQUARE;
+import static com.vpomo.virtualships.service.ControlValues.MAX_SIZE_SQUARE;
+
 
 /**
  * Created by Pomogalov on 22.03.2016.
  */
 
-@Service
-public class ShipServiceImpl implements ShipService{
-    private ControlValues controlValues;
+//@Service
+public class ShipServiceImpl implements ShipService {
+    private Square square;
+
+    public ShipServiceImpl (Square square) {
+        this.square = square;
+    }
 
     public synchronized void nextMove(Ship ship, Square square) {
         int currentCoordinateX, nextCoordinateX;
@@ -51,8 +55,10 @@ public class ShipServiceImpl implements ShipService{
 
         ship.setCoordinateX(nextCoordinateX);
         ship.setCoordinateY(nextCoordinateY);
+
         square.setColorCell(nextCoordinateX,nextCoordinateY, color);
         square.setNumberTimesCell(nextCoordinateX,nextCoordinateY,5);
+
         //System.out.println("nextX= " + nextCoordinateX + " nextY= " + nextCoordinateY);
 
     }

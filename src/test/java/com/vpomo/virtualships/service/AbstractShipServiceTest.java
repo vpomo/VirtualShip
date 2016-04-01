@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static com.vpomo.virtualships.model.Square.MAX_SIZE_SQUARE;
+import static com.vpomo.virtualships.service.ControlValues.MAX_SIZE_SQUARE;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
 

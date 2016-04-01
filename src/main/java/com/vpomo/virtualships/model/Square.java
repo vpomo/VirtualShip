@@ -1,10 +1,11 @@
 package com.vpomo.virtualships.model;
 
+import static com.vpomo.virtualships.service.ControlValues.MAX_SIZE_SQUARE;
+
 /**
  * Created by Pomogalov on 22.03.2016.
  */
 public class Square {
-    public static final int MAX_SIZE_SQUARE = 64;
     private CellSquare[][]  cellSquare;
 
     public Square() {

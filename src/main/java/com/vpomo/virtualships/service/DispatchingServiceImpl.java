@@ -25,15 +25,6 @@ public class DispatchingServiceImpl implements DispatchingService {
             this.square = new Square();
         }
 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < MAX_NUMBER_SHIPS; j++){
-                if (controlValues.arrayThreadShip[i][j] != null) {
-                    controlValues.arrayThreadShip[i][j] = null;
-                    System.out.println("==========!!!!!!=" + i + j);
-                }
-            }
-        }
-
         //this.square = square;
         if ((numberShipTypeA > 0) & (numberShipTypeA < MAX_NUMBER_SHIPS) ) {
            for (int n = numberShipTypeA; n > 0; n--) {
@@ -66,7 +57,7 @@ public class DispatchingServiceImpl implements DispatchingService {
             for (int j = 0; j < MAX_NUMBER_SHIPS; j++){
                 if (controlValues.arrayThreadShip[i][j] != null) {
                     controlValues.arrayThreadShip[i][j].join();
-                    System.out.println("!!!!!!=" + i + j);
+                    //System.out.println("!!!!!!=" + i + j);
                 }
             }
         }

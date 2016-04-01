@@ -2,7 +2,7 @@ package com.vpomo.virtualships.model;
 
 import java.util.Random;
 
-import static com.vpomo.virtualships.model.Square.MAX_SIZE_SQUARE;
+import static com.vpomo.virtualships.service.ControlValues.MAX_SIZE_SQUARE;
 
 /**
  * Created by Pomogalov on 22.03.2016.
