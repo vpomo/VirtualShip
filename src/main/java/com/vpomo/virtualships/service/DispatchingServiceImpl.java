@@ -10,8 +10,8 @@ import static com.vpomo.virtualships.service.ControlValues.MAX_NUMBER_SHIPS;
  */
 @Service
 public class DispatchingServiceImpl implements DispatchingService {
-    public static volatile Square square;
-    private ControlValues controlValues;
+    //public static volatile Square square;
+    public ControlValues controlValues;
 
     public void startMovingShips(int numberShipTypeA, int numberShipTypeD, int numberShipTypeP) throws InterruptedException {
         this.controlValues = new ControlValues();
@@ -21,7 +21,7 @@ public class DispatchingServiceImpl implements DispatchingService {
             this.controlValues = new ControlValues();
         }
 
-        if (square == null) {
+        if (controlValues.square == null) {
             this.square = new Square();
         }
 

@@ -1,5 +1,7 @@
 package com.vpomo.virtualships.model;
 
+import java.util.ArrayList;
+
 import static com.vpomo.virtualships.service.ControlValues.MAX_SIZE_SQUARE;
 
 /**
@@ -7,6 +9,8 @@ import static com.vpomo.virtualships.service.ControlValues.MAX_SIZE_SQUARE;
  */
 public class Square {
     private CellSquare[][]  cellSquare;
+    public ArrayList<CellSquare> queueDrivers = new ArrayList<>();
+
 
     public Square() {
         String colorCell = "..";
@@ -37,6 +41,19 @@ public class Square {
     public int getNumberTimesCell(int coordinateX, int coordinateY) {
         return cellSquare[coordinateX][coordinateY].getNumberTimesToChangeColor();
     }
+
+    public ArrayList<CellSquare> getRowSquare(int row) {
+        ArrayList<CellSquare> rowSquare = new ArrayList<CellSquare>(MAX_SIZE_SQUARE);
+        rowSquare.clear();
+        rowSquare.trimToSize();
+
+        for (int i = 0; i < MAX_SIZE_SQUARE; i++) {
+            rowSquare.add(this.cellSquare[row][i]);
+        }
+
+        return rowSquare;
+    }
+
 
     @Override
     public String toString(){
