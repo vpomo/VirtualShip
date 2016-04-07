@@ -42,16 +42,18 @@ public class Square {
         return cellSquare[coordinateX][coordinateY].getNumberTimesToChangeColor();
     }
 
-    public ArrayList<CellSquare> getRowSquare(int row) {
-        ArrayList<CellSquare> rowSquare = new ArrayList<CellSquare>(MAX_SIZE_SQUARE);
-        rowSquare.clear();
-        rowSquare.trimToSize();
+    public ArrayList<CellSquare> getJSONSquare() {
+        ArrayList<CellSquare> jsonSquare = new ArrayList<>(MAX_SIZE_SQUARE*MAX_SIZE_SQUARE);
+        jsonSquare.clear();
+        jsonSquare.trimToSize();
 
         for (int i = 0; i < MAX_SIZE_SQUARE; i++) {
-            rowSquare.add(this.cellSquare[row][i]);
+            for (int j = 0; j < MAX_SIZE_SQUARE; j++) {
+                jsonSquare.add(this.cellSquare[i][j]);
+            }
         }
 
-        return rowSquare;
+        return jsonSquare;
     }
 
 

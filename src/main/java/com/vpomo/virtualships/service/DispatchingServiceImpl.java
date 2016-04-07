@@ -1,7 +1,10 @@
 package com.vpomo.virtualships.service;
 
+import com.vpomo.virtualships.model.CellSquare;
 import com.vpomo.virtualships.model.Square;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 
 import static com.vpomo.virtualships.service.ControlValues.MAX_NUMBER_SHIPS;
 
@@ -22,26 +25,26 @@ public class DispatchingServiceImpl implements DispatchingService {
         }
 
         if (controlValues.square == null) {
-            this.square = new Square();
+            controlValues.square = new Square();
         }
 
         //this.square = square;
         if ((numberShipTypeA > 0) & (numberShipTypeA < MAX_NUMBER_SHIPS) ) {
            for (int n = numberShipTypeA; n > 0; n--) {
                threadName = "typeA-№" + n;
-               new ThreadShip(threadName, "typeA", this.controlValues, square, 0, n);
+               new ThreadShip(threadName, "typeA", this.controlValues, controlValues.square, 0, n);
            }
         }
         if ((numberShipTypeD > 0) & (numberShipTypeD < MAX_NUMBER_SHIPS)) {
             for (int n = numberShipTypeD; n > 0; n--) {
                 threadName = "typeD-№" + n;
-                new ThreadShip(threadName, "typeD", this.controlValues, square, 1, n);
+                new ThreadShip(threadName, "typeD", this.controlValues, controlValues.square, 1, n);
             }
         }
         if ((numberShipTypeP > 0) & (numberShipTypeP < MAX_NUMBER_SHIPS)) {
             for (int n = numberShipTypeP; n > 0; n--) {
                 threadName = "typeP-№" + n;
-                new ThreadShip(threadName, "typeP", this.controlValues, square, 2, n);
+                new ThreadShip(threadName, "typeP", this.controlValues, controlValues.square, 2, n);
             }
         }
 
@@ -63,10 +66,14 @@ public class DispatchingServiceImpl implements DispatchingService {
         }
 
 
-        synchronized (square) {
-            System.out.println("Square = " + square.toString());
+        synchronized (controlValues.square) {
+            System.out.println("Square = " + controlValues.square.toString());
         }
 
+    }
+
+    public synchronized ArrayList<CellSquare> getSquareToJSON() {
+        return controlValues.square.getJSONSquare();
     }
 
     public void stopMovingShip() {

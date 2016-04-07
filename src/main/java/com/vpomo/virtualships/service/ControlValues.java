@@ -7,7 +7,7 @@ import com.vpomo.virtualships.model.Square;
  */
 public class ControlValues {
     public static final int MAX_NUMBER_SHIPS = 5;
-    public static final int MAX_SIZE_SQUARE = 96;
+    public static final int MAX_SIZE_SQUARE = 30;
 
 
     public static volatile boolean stopMoving = false;
