@@ -16,16 +16,14 @@ public class DispatchingServiceImpl implements DispatchingService {
     //public static volatile Square square;
     public ControlValues controlValues;
 
-    public void startMovingShips(int numberShipTypeA, int numberShipTypeD, int numberShipTypeP) throws InterruptedException {
-        this.controlValues = new ControlValues();
+    public void startMovingShips(int numberShipTypeA, int numberShipTypeD, int numberShipTypeP, ControlValues controlValues) throws InterruptedException {
+        this.controlValues = controlValues;
         String threadName = "";
-
-        if (controlValues == null) {
-            this.controlValues = new ControlValues();
-        }
 
         if (controlValues.square == null) {
             controlValues.square = new Square();
+        } else {
+            //controlValues.square.clearSquare();
         }
 
         //this.square = square;
@@ -54,7 +52,7 @@ public class DispatchingServiceImpl implements DispatchingService {
             System.out.println("Interrrupted");
         }
 
-        controlValues.stopMoving = true;
+        //controlValues.stopMoving = true;
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < MAX_NUMBER_SHIPS; j++){

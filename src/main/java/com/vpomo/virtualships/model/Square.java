@@ -56,6 +56,16 @@ public class Square {
         return jsonSquare;
     }
 
+    public void clearSquare() {
+        String colorCell = "..";
+        int numberTimesToChangeColor = 0;
+        for (int i = 0; i < MAX_SIZE_SQUARE; i++) {
+            for (int j = 0; j < MAX_SIZE_SQUARE; j ++) {
+                this.cellSquare[i][j].setColor(colorCell);
+                this.cellSquare[i][j].setNumberTimesToChangeColor(numberTimesToChangeColor);
+            }
+        }
+    }
 
     @Override
     public String toString(){

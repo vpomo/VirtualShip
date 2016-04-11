@@ -17,59 +17,80 @@ app.factory('dataService', function ($http, $q) {
 });
 
 app.controller('squareController', function ($scope, $http, dataService) {
-    $scope.square = createSquare();
+    $scope.grid = createSquare(40,40);
+    $scope.flagStarting = false;
     $scope.uncovercell = function(cell) {
-        cell.isCovered = false;
+        cell.color = "==";
     };
 
     $scope.load = function () {
         var promiseObj = dataService.getData();
         promiseObj.then(function (value) {
             $scope.actualSquare = value;
-            console.log(value);
-        });
-        for(var i = 0; i < 30; i++) {
-            for(var j = 0; j < 30; j++) {
-                square.rows
-
-                console.log("i=" + i + " j=" + j);
-                console.log("i=" + i + " j=" + j + $value[i*30 + j*30].color);
-
-                if (value[i*30 + j*30].color != "..") {
-                    cell.isCovered = false;
-                    cell.content = "full";
-                    console.log("i=" + i + " j=" + j + value[i*30 + j*30].color);
-
+            console.log($scope.grid[1][1].color);
+            for(var i = 0; i < 40; i++) {
+                for(var j = 0; j < 40; j++) {
+                    $scope.grid[i][j].color = value[i*40 + j].color;
                 }
             }
+        });
+    }
 
-            square.rows.push(row);
+    $scope.startMoving = function () {
+        $scope.flagStarting = true;
+        $scope.clearSquare(40,40);
+        var request = {
+            method: 'POST',
+            url: 'http://localhost:8080/restful/start',
+            headers: {'Content-Type': 'application/json; charset: UTF-8'},
+            data: $scope.flagStarting
         }
 
+        $http(request).success(function (data) {
+            data = $scope.flagStarting;
+        })
+        .error(function (data, status, headers, config) {
+                //  Do some error handling here
+        });
+    }
+
+    $scope.stopMoving = function () {
+        $scope.flagStarting = false;
+        var request = {
+            method: 'POST',
+            url: 'http://localhost:8080/restful/stop',
+            headers: {'Content-Type': 'application/json; charset: UTF-8'},
+            data: $scope.flagStarting
+        }
+
+        $http(request).success(function (data) {
+            data = $scope.flagStarting;
+        })
+        .error(function (data, status, headers, config) {
+            //  Do some error handling here
+        });
     }
 
 });
 
-
-
-
-function createSquare() {
-    var square = {};
-    square.rows = [];
-    
-    for(var i = 0; i < 30; i++) {
-        var row = {};
-        row.cells = [];
-        
-        for(var j = 0; j < 30; j++) {
-            var cell = {};
-            cell.color = "..";
-            row.cells.push(cell);
+function createSquare(width, height) {
+    var grid = [], row, x, y;
+    for (y = 0; y < height; y++) {
+        row = [];
+        for (x = 0; x < width; x++) {
+            row.push({
+                color: ".."
+            });
         }
-        
-        square.rows.push(row);
+        grid.push(row);
     }
-   
-    return square;
+    return grid;
 }
 
+function clearSquare(width, height) {
+    for(var i = 0; i < height; i++) {
+        for(var j = 0; j < width; j++) {
+            $scope.grid[i][j].color = "..";
+        }
+    }
+}
