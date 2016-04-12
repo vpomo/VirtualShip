@@ -16,9 +16,10 @@ app.factory('dataService', function ($http, $q) {
     }
 });
 
-app.controller('squareController', function ($scope, $http, dataService) {
+app.controller('squareController', function ($scope, $http, dataService, $timeout) {
     $scope.grid = createSquare(40,40);
     $scope.flagStarting = false;
+
     $scope.uncovercell = function(cell) {
         cell.color = "==";
     };
@@ -37,21 +38,29 @@ app.controller('squareController', function ($scope, $http, dataService) {
     }
 
     $scope.startMoving = function () {
-        $scope.flagStarting = true;
         $scope.clearSquare(40,40);
+        $scope.numberShip = {
+            numberShipTypeA: $scope.numberShipTypeA,
+            numberShipTypeD: $scope.numberShipTypeD,
+            numberShipTypeP: $scope.numberShipTypeP
+        }
+
         var request = {
             method: 'POST',
             url: 'http://localhost:8080/restful/start',
             headers: {'Content-Type': 'application/json; charset: UTF-8'},
-            data: $scope.flagStarting
+            data: angular.toJson($scope.numberShip)
         }
-
+        console.log("$scope.numberShipTypeA=" + $scope.numberShipTypeA);
         $http(request).success(function (data) {
-            data = $scope.flagStarting;
+            console.log("$scope.numberShip=" + $scope.numberShip);
+            data = angular.toJson($scope.numberShip);
         })
         .error(function (data, status, headers, config) {
                 //  Do some error handling here
         });
+
+        var prObj = $timeout(load(), 1000);
     }
 
     $scope.stopMoving = function () {
@@ -69,6 +78,19 @@ app.controller('squareController', function ($scope, $http, dataService) {
         .error(function (data, status, headers, config) {
             //  Do some error handling here
         });
+        $timeout.cancel(prObj);
+    }
+
+    $scope.clearSquare = function (width, height) {
+        for(var i = 0; i < height; i++) {
+            for(var j = 0; j < width; j++) {
+                $scope.grid[i][j].color = "..";
+            }
+        }
+    }
+    
+    $scope.update = function () {
+        $timeout(update, 1000);
     }
 
 });
@@ -87,10 +109,3 @@ function createSquare(width, height) {
     return grid;
 }
 
-function clearSquare(width, height) {
-    for(var i = 0; i < height; i++) {
-        for(var j = 0; j < width; j++) {
-            $scope.grid[i][j].color = "..";
-        }
-    }
-}

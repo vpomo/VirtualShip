@@ -1,8 +1,11 @@
 package com.vpomo.virtualships.web;
 
 import com.vpomo.virtualships.model.CellSquare;
+import com.vpomo.virtualships.model.NumberShip;
 import com.vpomo.virtualships.service.ControlValues;
 import com.vpomo.virtualships.service.DispatchingService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +21,7 @@ import java.util.ArrayList;
  */
 @Controller
 public class DrawSquare {
+    private static final Logger logger = LoggerFactory.getLogger(DrawSquare.class);
     private final DispatchingService dispatchingService;
     public ControlValues controlValues;
 
@@ -38,12 +42,14 @@ public class DrawSquare {
     }
 
     @RequestMapping(value = "/restful/start", method = RequestMethod.POST)
-    public void startMoving(@RequestBody boolean flagStarting) throws InterruptedException {
+    public void startMoving(@RequestBody NumberShip numberShip) throws InterruptedException {
+        logger.info("Initialization model ...");
         if (controlValues == null) {
             this.controlValues = new ControlValues();
         }
         controlValues.stopMoving = false;
-        dispatchingService.startMovingShips(1, 2, 1, controlValues);
+        logger.info("NumberShipTypeA=" + numberShip.getNumberShipTypeA());
+        dispatchingService.startMovingShips(numberShip.getNumberShipTypeA(), numberShip.getNumberShipTypeD(), numberShip.getNumberShipTypeP(), controlValues);
     }
 
     @RequestMapping(value = "/restful/stop", method = RequestMethod.POST)

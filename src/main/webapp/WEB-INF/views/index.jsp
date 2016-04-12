@@ -52,6 +52,12 @@
                 <div class="panel panel-danger">
                     <div class="panel-heading">Control virtual ships</div>
                     <div class="panel-body">
+                        <h1>Enter the initial data for the model</h1>
+
+                        <p><label for="numberShipTypeA">Number of ships of type A: </label><input id="numberShipTypeA" ng-model="numberShipTypeA"/></p>
+                        <p><label for="numberShipTypeD">Number of ships of type D: </label><input id="numberShipTypeD" ng-model="numberShipTypeD"/></p>
+                        <p><label for="numberShipTypeP">Number of ships of type P: </label><input id="numberShipTypeP" ng-model="numberShipTypeP"/></p>
+
                         <br>
                         <button type="button" class="btn btn-success" ng-click="load()">Get Square</button>
                         <br>
