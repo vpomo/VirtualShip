@@ -1,4 +1,4 @@
-var app = angular.module('app', [])
+var app = angular.module('app', []);
 app.factory('dataService', function ($http, $q) {
     return {
         getData: function () {
@@ -16,13 +16,15 @@ app.factory('dataService', function ($http, $q) {
     }
 });
 
-app.controller('squareController', function ($scope, $http, dataService, $timeout) {
+app.controller('squareController', function ($scope, $http, $interval, dataService) {
     $scope.grid = createSquare(40,40);
     $scope.flagStarting = false;
 
     $scope.uncovercell = function(cell) {
         cell.color = "==";
     };
+
+    $interval( function(){ $scope.load(); }, 1000);
 
     $scope.load = function () {
         var promiseObj = dataService.getData();
@@ -60,7 +62,6 @@ app.controller('squareController', function ($scope, $http, dataService, $timeou
                 //  Do some error handling here
         });
 
-        var prObj = $timeout(load(), 1000);
     }
 
     $scope.stopMoving = function () {
@@ -78,7 +79,6 @@ app.controller('squareController', function ($scope, $http, dataService, $timeou
         .error(function (data, status, headers, config) {
             //  Do some error handling here
         });
-        $timeout.cancel(prObj);
     }
 
     $scope.clearSquare = function (width, height) {

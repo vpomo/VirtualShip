@@ -12,6 +12,8 @@
     <link rel="stylesheet" type="text/css"
           href="http://localhost:8080/${pageContext.request.contextPath}resources/css/bootstrap-theme.min.css">
 
+    <script src="http://localhost:8080/${pageContext.request.contextPath}resources/js/angular.min.js"
+            type="text/javascript"></script>
     <script src="http://localhost:8080/${pageContext.request.contextPath}resources/js/jquery-2.1.1.js"
             type="text/javascript"></script>
     <script src="http://localhost:8080/${pageContext.request.contextPath}resources/js/bootstrap.min.js"
@@ -93,8 +95,6 @@
     </div>
 </div>
 
-<script src="http://localhost:8080/${pageContext.request.contextPath}resources/js/angular.min.js"
-        type="text/javascript"></script>
 <script src="http://localhost:8080/${pageContext.request.contextPath}resources/js/app.js"
         type="text/javascript"></script>
 
