@@ -56,13 +56,13 @@ public class Ship {
         this.square = square;
         switch (typeShip) {
             case "typeA":
-                this.color = "#00";
+                this.color = "ship_a";
                 break;
             case "typeD":
-                this.color = "#11";
+                this.color = "ship_d";
                 break;
             case "typeP":
-                this.color = "#22";
+                this.color = "ship_p";
                 break;
             default:
                 break;

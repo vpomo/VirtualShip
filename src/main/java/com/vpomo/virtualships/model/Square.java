@@ -21,6 +21,7 @@ public class Square {
             for (int j = 0; j < MAX_SIZE_SQUARE; j ++) {
                 this.cellSquare[i][j] = new CellSquare(i,j);
                 this.cellSquare[i][j].setColor(colorCell);
+                this.cellSquare[i][j].setPreviousColor(colorCell);
                 this.cellSquare[i][j].setNumberTimesToChangeColor(numberTimesToChangeColor);
             }
         }
@@ -32,6 +33,14 @@ public class Square {
 
     public String getColorCell(int coordinateX, int coordinateY) {
         return cellSquare[coordinateX][coordinateY].getColor();
+    }
+
+    public void setPreviousColorCell(int coordinateX, int coordinateY, String color) {
+        this.cellSquare[coordinateX][coordinateY].setPreviousColor(color);
+    }
+
+    public String getPreviousColorCell(int coordinateX, int coordinateY) {
+        return cellSquare[coordinateX][coordinateY].getPreviousColor();
     }
 
     public void setNumberTimesCell(int coordinateX, int coordinateY, int numberTimesToChangeColor) {
@@ -62,6 +71,7 @@ public class Square {
         for (int i = 0; i < MAX_SIZE_SQUARE; i++) {
             for (int j = 0; j < MAX_SIZE_SQUARE; j ++) {
                 this.cellSquare[i][j].setColor(colorCell);
+                this.cellSquare[i][j].setPreviousColor(colorCell);
                 this.cellSquare[i][j].setNumberTimesToChangeColor(numberTimesToChangeColor);
             }
         }

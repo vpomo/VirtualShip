@@ -7,6 +7,7 @@ public class CellSquare {
     private int coordinateX;
     private int coordinateY;
     private String color;
+    private String previousColor;
     private int numberTimesToChangeColor;
 
     public int getCoordinateX() {
@@ -41,9 +42,16 @@ public class CellSquare {
         this.numberTimesToChangeColor = numberTimesToChangeColor;
     }
 
+    public String getPreviousColor() {
+        return previousColor;
+    }
+
+    public void setPreviousColor(String previousColor) {
+        this.previousColor = previousColor;
+    }
+
     public CellSquare(int currentCoordinateX, int currentCoordinateY) {
         this.coordinateX = currentCoordinateX;
         this.coordinateY = currentCoordinateY;
     }
-
 }

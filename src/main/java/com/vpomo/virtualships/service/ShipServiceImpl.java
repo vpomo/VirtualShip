@@ -24,7 +24,11 @@ public class ShipServiceImpl implements ShipService {
         int currentCoordinateX, nextCoordinateX;
         int currentCoordinateY, nextCoordinateY;
         String typeShip;
-        String color = "ZZ";
+        String colorShip = "##";
+        String colorMarkPre = "##";
+        String colorMarkMix = "##";
+        String colorOldForShip;
+        String colorOldForMark;
         int directionMoveShip = 10;
         Random nextMove = new Random();
 
@@ -36,15 +40,18 @@ public class ShipServiceImpl implements ShipService {
         switch (typeShip) {
             case "typeA":
                 directionMoveShip = nextMove.nextInt(8);
-                color = "aa";
+                colorMarkPre = "mark_a";
+                colorShip = "ship_a";
                 break;
             case "typeD":
                 directionMoveShip = nextMove.nextInt(4);
-                color = "dd";
+                colorMarkPre = "mark_d";
+                colorShip = "ship_d";
                 break;
             case "typeP":
                 directionMoveShip = nextMove.nextInt(4);
-                color = "pp";
+                colorMarkPre = "mark_p";
+                colorShip = "ship_p";
                 break;
             default:
                 break;
@@ -53,14 +60,49 @@ public class ShipServiceImpl implements ShipService {
         nextCoordinateX = currentCoordinateX + nextMoveX(typeShip, directionMoveShip, currentCoordinateX);
         nextCoordinateY = currentCoordinateY + nextMoveY(typeShip, directionMoveShip, currentCoordinateY);
 
+        colorOldForShip = square.getColorCell(nextCoordinateX, nextCoordinateY);
+        colorOldForMark = square.getPreviousColorCell(currentCoordinateX,currentCoordinateY);
+        colorMarkMix = calculateColorMark(colorMarkPre, colorOldForMark);
+
         ship.setCoordinateX(nextCoordinateX);
         ship.setCoordinateY(nextCoordinateY);
 
-        square.setColorCell(nextCoordinateX,nextCoordinateY, color);
+        square.setColorCell(currentCoordinateX,currentCoordinateY, colorMarkMix);
+        square.setNumberTimesCell(currentCoordinateX,currentCoordinateY,4);
+
+        square.setPreviousColorCell(nextCoordinateX, nextCoordinateY, colorOldForShip);
+        square.setColorCell(nextCoordinateX,nextCoordinateY, colorShip);
         square.setNumberTimesCell(nextCoordinateX,nextCoordinateY,5);
 
         //System.out.println("nextX= " + nextCoordinateX + " nextY= " + nextCoordinateY);
 
+    }
+
+    private String calculateColorMark(String colorNew, String colorOld) {
+        String colorMix = "..";
+		
+        if (((colorNew == "mark_a") & (colorOld == "mark_a")) || ((colorNew == "mark_a") & (colorOld == ".."))) {
+            colorMix = "mark_a";
+        }
+        if (((colorNew == "mark_d") & (colorOld == "mark_d")) || ((colorNew == "mark_d") & (colorOld == ".."))) {
+            colorMix = "mark_d";
+        }
+        if (((colorNew == "mark_p") & (colorOld == "mark_p")) || ((colorNew == "mark_p") & (colorOld == ".."))) {
+            colorMix = "mark_p";
+        }
+
+        if (((colorNew == "mark_a") & (colorOld == "mark_d")) || ((colorNew == "mark_d") & (colorOld == "mark_a"))) {
+            colorMix = "mark_ad";
+        }
+        if (((colorNew == "mark_a") & (colorOld == "mark_p")) || ((colorNew == "mark_p") & (colorOld == "mark_a"))) {
+            colorMix = "mark_ap";
+        }
+        if (((colorNew == "mark_d") & (colorOld == "mark_p")) || ((colorNew == "mark_p") & (colorOld == "mark_d"))) {
+            colorMix = "mark_dp";
+        }
+
+		//System.out.println("colorNew=" + colorNew + " colorOld=" + colorOld + " colorMix=" + colorMix);
+        return colorMix;
     }
 
 /**

@@ -30,7 +30,7 @@ app.controller('squareController', function ($scope, $http, $interval, dataServi
         var promiseObj = dataService.getData();
         promiseObj.then(function (value) {
             $scope.actualSquare = value;
-            console.log($scope.grid[1][1].color);
+            //console.log($scope.grid[1][1].color);
             for(var i = 0; i < 40; i++) {
                 for(var j = 0; j < 40; j++) {
                     $scope.grid[i][j].color = value[i*40 + j].color;
@@ -79,6 +79,22 @@ app.controller('squareController', function ($scope, $http, $interval, dataServi
         .error(function (data, status, headers, config) {
             //  Do some error handling here
         });
+    }
+
+    $scope.initialSquare() = function () {
+        var request = {
+            method: 'POST',
+            url: 'http://localhost:8080/restful/clear',
+            headers: {'Content-Type': 'application/json; charset: UTF-8'},
+            data: $scope.flagStarting
+        }
+
+        $http(request).success(function (data) {
+                data = $scope.flagStarting;
+            })
+            .error(function (data, status, headers, config) {
+                //  Do some error handling here
+            });
     }
 
     $scope.clearSquare = function (width, height) {

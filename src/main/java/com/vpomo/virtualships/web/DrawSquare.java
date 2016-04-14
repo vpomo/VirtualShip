@@ -57,4 +57,11 @@ public class DrawSquare {
         controlValues.stopMoving = true;
     }
 
+    @RequestMapping(value = "/restful/clear", method = RequestMethod.POST)
+    public void clearSquare(@RequestBody boolean flagStop) throws InterruptedException  {
+        controlValues.square.clearSquare();
+        dispatchingService.clearSquare();
+        logger.info("Clearing square");
+    }
+
 }

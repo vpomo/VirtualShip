@@ -9,6 +9,6 @@ import java.util.ArrayList;
  */
 public interface DispatchingService {
     void startMovingShips(int numberShipTypeA, int numberShipTypeD, int numberShipTypeP, ControlValues controlValues) throws InterruptedException;
-    void stopMovingShip();
+    void clearSquare();
     ArrayList<CellSquare> getSquareToJSON();
 }

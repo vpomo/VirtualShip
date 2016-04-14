@@ -26,8 +26,7 @@
     <div ng-app="app" ng-controller="squareController">
         <h2 class="h2 page-header">Monitoring virtual ships</h2>
 
-        <div class="row">
-            <div class="col-sm-8 col-md-8 col-lg-8">
+            <div class="col-sm-7 col-md-7 col-lg-7">
                 <div class="panel panel-info">
                     <div class="panel-heading">Square</div>
                     <div class="panel-body">
@@ -35,12 +34,15 @@
                         <table class="square">
                             <tr ng-repeat="row in grid track by $index">
                                 <td ng-repeat="cell in row track by $index" ng-click="uncovercell(cell)">
-                                    <img ng-if="cell.color == 'aa'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ff0000.png" />
-                                    <img ng-if="cell.color == 'dd'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ffff00.png" />
-                                    <img ng-if="cell.color == 'pp'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/00cc00.png" />
-                                    <img ng-if="cell.color == '#00'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ff0000-ship.png" />
-                                    <img ng-if="cell.color == '#11'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ffff00-ship.png" />
-                                    <img ng-if="cell.color == '#22'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/00cc00-ship.png" />
+                                    <img ng-if="cell.color == 'mark_a'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ff0000.png" />
+                                    <img ng-if="cell.color == 'mark_d'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ffff00.png" />
+                                    <img ng-if="cell.color == 'mark_p'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/00cc00.png" />
+                                    <img ng-if="cell.color == 'mark_ad'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ffcc33.png" />
+                                    <img ng-if="cell.color == 'mark_ap'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/33cccc.png" />
+                                    <img ng-if="cell.color == 'mark_dp'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/cccc33.png" />
+                                    <img ng-if="cell.color == 'ship_a'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ff0000-ship.png" />
+                                    <img ng-if="cell.color == 'ship_d'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ffff00-ship.png" />
+                                    <img ng-if="cell.color == 'ship_p'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/00cc00-ship.png" />
                                     <img ng-if="cell.color == '##'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/empty.png" />
                                     <img ng-if="cell.color == '..'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/covered.png" />
                                 </td>
@@ -50,7 +52,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4 col-md-4 col-lg-4">
+            <div class="col-sm-5 col-md-5 col-lg-5">
                 <div class="panel panel-danger">
                     <div class="panel-heading">Control virtual ships</div>
                     <div class="panel-body">
@@ -61,7 +63,7 @@
                         <p><label for="numberShipTypeP">Number of ships of type P: </label><input id="numberShipTypeP" ng-model="numberShipTypeP"/></p>
 
                         <br>
-                        <button type="button" class="btn btn-success" ng-click="load()">Get Square</button>
+                        <button type="button" class="btn btn-success" ng-click="initialSquare()">Clear Square</button>
                         <br>
                         <br>
                         <button type="button" class="btn btn-primary" ng-click="startMoving()">Start</button>

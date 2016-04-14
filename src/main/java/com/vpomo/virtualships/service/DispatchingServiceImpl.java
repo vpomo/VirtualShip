@@ -74,7 +74,7 @@ public class DispatchingServiceImpl implements DispatchingService {
         return controlValues.square.getJSONSquare();
     }
 
-    public void stopMovingShip() {
-
+    public void clearSquare() {
+        controlValues.square.clearSquare();
     }
 }
