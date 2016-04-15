@@ -101,7 +101,37 @@ public class ShipServiceImpl implements ShipService {
             colorMix = "mark_dp";
         }
 
-		//System.out.println("colorNew=" + colorNew + " colorOld=" + colorOld + " colorMix=" + colorMix);
+        if (((colorNew == "mark_ad") & (colorOld == "mark_a")) || ((colorNew == "mark_a") & (colorOld == "mark_ad"))) {
+            colorMix = "mark_ada";
+        }
+        if (((colorNew == "mark_ad") & (colorOld == "mark_d")) || ((colorNew == "mark_d") & (colorOld == "mark_ad"))) {
+            colorMix = "mark_add";
+        }
+        if (((colorNew == "mark_ad") & (colorOld == "mark_p")) || ((colorNew == "mark_p") & (colorOld == "mark_ad"))) {
+            colorMix = "mark_adp";
+        }
+
+        if (((colorNew == "mark_dp") & (colorOld == "mark_a")) || ((colorNew == "mark_a") & (colorOld == "mark_dp"))) {
+            colorMix = "mark_dpa";
+        }
+        if (((colorNew == "mark_dp") & (colorOld == "mark_d")) || ((colorNew == "mark_d") & (colorOld == "mark_dp"))) {
+            colorMix = "mark_dpd";
+        }
+        if (((colorNew == "mark_dp") & (colorOld == "mark_p")) || ((colorNew == "mark_p") & (colorOld == "mark_dp"))) {
+            colorMix = "mark_dpp";
+        }
+
+        if (((colorNew == "mark_ap") & (colorOld == "mark_a")) || ((colorNew == "mark_a") & (colorOld == "mark_ap"))) {
+            colorMix = "mark_apa";
+        }
+        if (((colorNew == "mark_ap") & (colorOld == "mark_d")) || ((colorNew == "mark_d") & (colorOld == "mark_ap"))) {
+            colorMix = "mark_apd";
+        }
+        if (((colorNew == "mark_ap") & (colorOld == "mark_p")) || ((colorNew == "mark_p") & (colorOld == "mark_ap"))) {
+            colorMix = "mark_app";
+        }
+
+        //System.out.println("colorNew=" + colorNew + " colorOld=" + colorOld + " colorMix=" + colorMix);
         return colorMix;
     }
 

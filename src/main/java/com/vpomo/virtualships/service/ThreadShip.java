@@ -3,6 +3,8 @@ package com.vpomo.virtualships.service;
 import com.vpomo.virtualships.model.Ship;
 import com.vpomo.virtualships.model.Square;
 
+import java.util.Random;
+
 /**
  * Created by Pomogalov on 29.03.2016.
  */
@@ -35,12 +37,15 @@ public class ThreadShip implements Runnable {
 
     @Override
     public void run(){
+        Random nextSpeed = new Random();
+        int ratio;
         try {
                 while (! controlValues.stopMoving) {
                     if (ship != null) {
                         shipService.nextMove(ship, square);
                     }
-                    thread.sleep(100);
+                    ratio = nextSpeed.nextInt(10);
+                    thread.sleep(500 + ratio*100);
                 }
         } catch (InterruptedException e) {
             System.out.println("Thread " + name + "interrupted");

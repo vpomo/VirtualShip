@@ -24,7 +24,7 @@ app.controller('squareController', function ($scope, $http, $interval, dataServi
         cell.color = "==";
     };
 
-    $interval( function(){ $scope.load(); }, 1000);
+    $interval( function(){ $scope.load(); }, 200);
 
     $scope.load = function () {
         var promiseObj = dataService.getData();
@@ -40,7 +40,6 @@ app.controller('squareController', function ($scope, $http, $interval, dataServi
     }
 
     $scope.startMoving = function () {
-        $scope.clearSquare(40,40);
         $scope.numberShip = {
             numberShipTypeA: $scope.numberShipTypeA,
             numberShipTypeD: $scope.numberShipTypeD,
@@ -81,7 +80,7 @@ app.controller('squareController', function ($scope, $http, $interval, dataServi
         });
     }
 
-    $scope.initialSquare() = function () {
+    $scope.initialSquare = function () {
         var request = {
             method: 'POST',
             url: 'http://localhost:8080/restful/clear',
@@ -95,18 +94,6 @@ app.controller('squareController', function ($scope, $http, $interval, dataServi
             .error(function (data, status, headers, config) {
                 //  Do some error handling here
             });
-    }
-
-    $scope.clearSquare = function (width, height) {
-        for(var i = 0; i < height; i++) {
-            for(var j = 0; j < width; j++) {
-                $scope.grid[i][j].color = "..";
-            }
-        }
-    }
-    
-    $scope.update = function () {
-        $timeout(update, 1000);
     }
 
 });

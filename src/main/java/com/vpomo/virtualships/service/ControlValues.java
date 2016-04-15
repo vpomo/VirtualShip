@@ -6,7 +6,7 @@ import com.vpomo.virtualships.model.Square;
  * Created by Pomogalov on 31.03.2016.
  */
 public class ControlValues {
-    public static final int MAX_NUMBER_SHIPS = 5;
+    public static final int MAX_NUMBER_SHIPS = 7;
     public static final int MAX_SIZE_SQUARE = 40;
 
 
