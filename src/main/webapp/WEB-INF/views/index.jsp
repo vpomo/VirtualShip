@@ -73,6 +73,8 @@
                     </div>
                     <div class="panel-body">
                         <h4>Please enter the initial data for the model:</h4>
+                        <div ng-if="testNumberShip()" class="alert alert-danger" role="alert">{{errorMessage}}</div>
+
                         <div class="well">
                             <div class="row">
                                 <div class="col-lg-3 col-sm-3 col-md-3">
@@ -82,7 +84,9 @@
                                     <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
                                 </div>
                                 <div class="col-lg-8 col-sm-8 col-md-8">
-                                    <p class="text-input-dialog"><label for="numberShipTypeA">Enter number of ships of type A: </label><input id="numberShipTypeA" ng-model="numberShipTypeA"/></p>
+                                    <p class="text-input-dialog"><label for="numberShipTypeA">Enter number of ships of type A: </label>
+                                        <input id="numberShipTypeA" ng-model="numberShipTypeA">
+                                    </p>
                                     <span class="badge badge-important">movement in all directions</span>
                                 </div>
                             </div>
@@ -96,7 +100,9 @@
                                     <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
                                 </div>
                                 <div class="col-lg-8 col-sm-8 col-md-8">
-                                    <p><label for="numberShipTypeD">Enter number of ships of type D: </label><input id="numberShipTypeD" ng-model="numberShipTypeD"/></p>
+                                    <p><label for="numberShipTypeD">Enter number of ships of type D: </label>
+                                        <input id="numberShipTypeD" ng-model="numberShipTypeD">
+                                    </p>
                                     <span class="badge badge-success">movement only on the diagonal</span>
                                 </div>
                             </div>
@@ -110,7 +116,9 @@
                                     <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
                                 </div>
                                 <div class="col-lg-8 col-sm-8 col-md-8">
-                                    <p><label for="numberShipTypeP">Enter number of ships of type P: </label><input id="numberShipTypeP" ng-model="numberShipTypeP"/></p>
+                                    <p><label for="numberShipTypeP">Enter number of ships of type P: </label>
+                                        <input id="numberShipTypeP" ng-model="numberShipTypeP">
+                                    </p>
                                     <span class="badge badge-warning">movement only vertical and horizontal</span>
                                 </div>
                             </div>
@@ -118,17 +126,17 @@
 
                         <div class="well">
                             <div class="row">
-                                <div class="col-lg-4 col-sm-4 col-md-4">
+                                <div class="col-lg-3 col-sm-3 col-md-3">
                                     <button type="button" class="btn btn-primary" ng-click="startMoving()">
                                         <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> Start
                                     </button>
                                 </div>
-                                <div class="col-lg-4 col-sm-4 col-md-4">
+                                <div class="col-lg-3 col-sm-3 col-md-3">
                                     <button type="button" class="btn btn-danger" ng-click="stopMoving()">
                                         <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Stop
                                     </button>
                                 </div>
-                                <div class="col-lg-4 col-sm-4 col-md-4">
+                                <div class="col-lg-6 col-sm-6 col-md-6">
                                     <button type="button" class="btn btn-success" ng-click="initialSquare()">
                                         <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Clear Square
                                     </button>
