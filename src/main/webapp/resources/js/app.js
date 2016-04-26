@@ -70,7 +70,7 @@ app.controller('squareController', function ($scope, $http, $interval, dataServi
         var isError = false;
 
         if (($scope.numberShipTypeA == 0) && ($scope.numberShipTypeD == 0) && ($scope.numberShipTypeP == 0)) {
-            $scope.errorMessage = "specify the value of the number of ships of at least one type";
+            $scope.errorMessage = "specify the value of the number of ships of at least one type, not more than 6";
             isError = true;
         }
         if ((isNaN(parseInt($scope.numberShipTypeA, 10))) || (isNaN(parseInt($scope.numberShipTypeD, 10))) || (isNaN(parseInt($scope.numberShipTypeP, 10)))) {

@@ -31,6 +31,7 @@
                     <div class="panel-heading">Square</div>
                     <div class="panel-body">
                         <br>
+
                         <table class="square elem">
                             <tr ng-repeat="row in grid track by $index">
                                 <td ng-repeat="cell in row track by $index" ng-click="uncovercell(cell)">
