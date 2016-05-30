@@ -6,17 +6,17 @@
 <head>
 
     <link rel="stylesheet" type="text/css"
-          href="http://localhost:8080/${pageContext.request.contextPath}resources/css/styles.css">
+          href="${pageContext.request.contextPath}/resources/css/styles.css">
     <link rel="stylesheet" type="text/css"
-          href="http://localhost:8080/${pageContext.request.contextPath}resources/css/bootstrap.min.css">
+          href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css"
-          href="http://localhost:8080/${pageContext.request.contextPath}resources/css/bootstrap-theme.min.css">
+          href="${pageContext.request.contextPath}/resources/css/bootstrap-theme.min.css">
 
-    <script src="http://localhost:8080/${pageContext.request.contextPath}resources/js/angular.min.js"
+    <script src="${pageContext.request.contextPath}/resources/js/angular.min.js"
             type="text/javascript"></script>
-    <script src="http://localhost:8080/${pageContext.request.contextPath}resources/js/jquery-2.1.1.js"
+    <script src="${pageContext.request.contextPath}/resources/js/jquery-2.1.1.js"
             type="text/javascript"></script>
-    <script src="http://localhost:8080/${pageContext.request.contextPath}resources/js/bootstrap.min.js"
+    <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"
             type="text/javascript"></script>
 
 
@@ -35,30 +35,30 @@
                         <table class="square elem">
                             <tr ng-repeat="row in grid track by $index">
                                 <td ng-repeat="cell in row track by $index" ng-click="uncovercell(cell)">
-                                    <img ng-if="cell.color == 'mark_a'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ff0000.png" />
-                                    <img ng-if="cell.color == 'mark_d'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ffff00.png" />
-                                    <img ng-if="cell.color == 'mark_p'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/00cc00.png" />
-                                    <img ng-if="cell.color == 'mark_ad'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ffcc33.png" />
-                                    <img ng-if="cell.color == 'mark_ap'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/33cccc.png" />
-                                    <img ng-if="cell.color == 'mark_dp'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/cccc33.png" />
+                                    <img ng-if="cell.color == 'mark_a'" src="${pageContext.request.contextPath}/resources/images/ff0000.png" />
+                                    <img ng-if="cell.color == 'mark_d'" src="${pageContext.request.contextPath}/resources/images/ffff00.png" />
+                                    <img ng-if="cell.color == 'mark_p'" src="${pageContext.request.contextPath}/resources/images/00cc00.png" />
+                                    <img ng-if="cell.color == 'mark_ad'" src="${pageContext.request.contextPath}/resources/images/ffcc33.png" />
+                                    <img ng-if="cell.color == 'mark_ap'" src="${pageContext.request.contextPath}/resources/images/33cccc.png" />
+                                    <img ng-if="cell.color == 'mark_dp'" src="${pageContext.request.contextPath}/resources/images/cccc33.png" />
 
-                                    <img ng-if="cell.color == 'mark_ada'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ffcc99.png" />
-                                    <img ng-if="cell.color == 'mark_add'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ffffcc.png" />
-                                    <img ng-if="cell.color == 'mark_adp'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ccffcc.png" />
+                                    <img ng-if="cell.color == 'mark_ada'" src="${pageContext.request.contextPath}/resources/images/ffcc99.png" />
+                                    <img ng-if="cell.color == 'mark_add'" src="${pageContext.request.contextPath}/resources/images/ffffcc.png" />
+                                    <img ng-if="cell.color == 'mark_adp'" src="${pageContext.request.contextPath}/resources/images/ccffcc.png" />
 
-                                    <img ng-if="cell.color == 'mark_dpa'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ffccff.png" />
-                                    <img ng-if="cell.color == 'mark_dpd'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ccff99.png" />
-                                    <img ng-if="cell.color == 'mark_dpp'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/99cc99.png" />
+                                    <img ng-if="cell.color == 'mark_dpa'" src="${pageContext.request.contextPath}/resources/images/ffccff.png" />
+                                    <img ng-if="cell.color == 'mark_dpd'" src="${pageContext.request.contextPath}/resources/images/ccff99.png" />
+                                    <img ng-if="cell.color == 'mark_dpp'" src="${pageContext.request.contextPath}/resources/images/99cc99.png" />
 
-                                    <img ng-if="cell.color == 'mark_apa'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ccccff.png" />
-                                    <img ng-if="cell.color == 'mark_apd'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ccffcc.png" />
-                                    <img ng-if="cell.color == 'mark_app'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/cccc99.png" />
+                                    <img ng-if="cell.color == 'mark_apa'" src="${pageContext.request.contextPath}/resources/images/ccccff.png" />
+                                    <img ng-if="cell.color == 'mark_apd'" src="${pageContext.request.contextPath}/resources/images/ccffcc.png" />
+                                    <img ng-if="cell.color == 'mark_app'" src="${pageContext.request.contextPath}/resources/images/cccc99.png" />
 
-                                    <img ng-if="cell.color == 'ship_a'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ff0000-ship.png" />
-                                    <img ng-if="cell.color == 'ship_d'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/ffff00-ship.png" />
-                                    <img ng-if="cell.color == 'ship_p'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/00cc00-ship.png" />
-                                    <img ng-if="cell.color == '##'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/empty.png" />
-                                    <img ng-if="cell.color == '..'" src="http://localhost:8080/${pageContext.request.contextPath}resources/images/covered.png" />
+                                    <img ng-if="cell.color == 'ship_a'" src="${pageContext.request.contextPath}/resources/images/ff0000-ship.png" />
+                                    <img ng-if="cell.color == 'ship_d'" src="${pageContext.request.contextPath}/resources/images/ffff00-ship.png" />
+                                    <img ng-if="cell.color == 'ship_p'" src="${pageContext.request.contextPath}/resources/images/00cc00-ship.png" />
+                                    <img ng-if="cell.color == '##'" src="${pageContext.request.contextPath}/resources/images/empty.png" />
+                                    <img ng-if="cell.color == '..'" src="${pageContext.request.contextPath}/resources/images/covered.png" />
                                 </td>
                             </tr>
                         </table>
@@ -79,7 +79,7 @@
                         <div class="well">
                             <div class="row">
                                 <div class="col-lg-3 col-sm-3 col-md-3">
-                                    <img src="http://localhost:8080/${pageContext.request.contextPath}resources/images/big-ship_red.jpg" />
+                                    <img src="${pageContext.request.contextPath}/resources/images/big-ship_red.jpg" />
                                 </div>
                                 <div class="col-lg-1 col-sm-1 col-md-1">
                                     <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
@@ -95,7 +95,7 @@
                         <div class="well">
                             <div class="row">
                                 <div class="col-lg-3 col-sm-3 col-md-3">
-                                    <img src="http://localhost:8080/${pageContext.request.contextPath}resources/images/big-ship_yellow.jpg" />
+                                    <img src="${pageContext.request.contextPath}/resources/images/big-ship_yellow.jpg" />
                                 </div>
                                 <div class="col-lg-1 col-sm-1 col-md-1">
                                     <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
@@ -111,7 +111,7 @@
                         <div class="well">
                             <div class="row">
                                 <div class="col-lg-3 col-sm-3 col-md-3">
-                                    <img src="http://localhost:8080/${pageContext.request.contextPath}resources/images/big-ship_green.jpg" />
+                                    <img src="${pageContext.request.contextPath}/resources/images/big-ship_green.jpg" />
                                 </div>
                                 <div class="col-lg-1 col-sm-1 col-md-1">
                                     <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
@@ -172,7 +172,7 @@
     </div>
 </div>
 
-<script src="http://localhost:8080/${pageContext.request.contextPath}resources/js/app.js"
+<script src="${pageContext.request.contextPath}/resources/js/app.js"
         type="text/javascript"></script>
 
 </body>

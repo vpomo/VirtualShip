@@ -3,7 +3,8 @@ app.factory('dataService', function ($http, $q) {
     return {
         getData: function () {
             var deferred = $q.defer();
-            $http({method: 'GET', url: 'http://localhost:8080/restful/getall/'}).
+            //$http({method: 'GET', url: 'http://localhost:8080/restful/getall/'}).
+            $http({method: 'GET', url: getContextPath() + '/restful/getall/'}).
             success(function (data, status, headers, config) {
                 deferred.resolve(data);
             })
@@ -51,13 +52,12 @@ app.controller('squareController', function ($scope, $http, $interval, dataServi
         if (!$scope.testNumberShip()) {
             var request = {
                 method: 'POST',
-                url: 'http://localhost:8080/restful/start',
+                //url: 'http://localhost:8080/restful/start',
+                url: getContextPath() + '/restful/start',
                 headers: {'Content-Type': 'application/json; charset: UTF-8'},
                 data: angular.toJson(numberShip)
             }
-            console.log("$scope.numberShipTypeA=" + $scope.numberShipTypeA);
             $http(request).success(function (data) {
-                    console.log("$scope.numberShip=" + numberShip);
                     data = angular.toJson(numberShip);
                 })
                 .error(function (data, status, headers, config) {
@@ -92,7 +92,8 @@ app.controller('squareController', function ($scope, $http, $interval, dataServi
         $scope.flagStarting = false;
         var request = {
             method: 'POST',
-            url: 'http://localhost:8080/restful/stop',
+            //url: 'http://localhost:8080/restful/stop',
+            url: getContextPath + '/restful/stop',
             headers: {'Content-Type': 'application/json; charset: UTF-8'},
             data: $scope.flagStarting
         }
@@ -108,7 +109,8 @@ app.controller('squareController', function ($scope, $http, $interval, dataServi
     $scope.initialSquare = function () {
         var request = {
             method: 'POST',
-            url: 'http://localhost:8080/restful/clear',
+            //url: 'http://localhost:8080/restful/clear',
+            url: getContextPath() + '/restful/clear',
             headers: {'Content-Type': 'application/json; charset: UTF-8'},
             data: $scope.flagStarting
         }
@@ -136,4 +138,6 @@ function createSquare(width, height) {
     }
     return grid;
 }
-
+function getContextPath() {
+    return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+}

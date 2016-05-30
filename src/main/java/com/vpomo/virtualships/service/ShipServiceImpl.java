@@ -81,53 +81,53 @@ public class ShipServiceImpl implements ShipService {
     private String calculateColorMark(String colorNew, String colorOld) {
         String colorMix = "..";
 		
-        if (((colorNew == "mark_a") & (colorOld == "mark_a")) || ((colorNew == "mark_a") & (colorOld == ".."))) {
+        if (((colorNew.equals("mark_a")) & (colorOld.equals("mark_a"))) || ((colorNew.equals("mark_a")) & (colorOld.equals("..")))) {
             colorMix = "mark_a";
         }
-        if (((colorNew == "mark_d") & (colorOld == "mark_d")) || ((colorNew == "mark_d") & (colorOld == ".."))) {
+        if (((colorNew.equals("mark_d")) & (colorOld.equals("mark_d"))) || ((colorNew.equals("mark_d")) & (colorOld.equals("..")))) {
             colorMix = "mark_d";
         }
-        if (((colorNew == "mark_p") & (colorOld == "mark_p")) || ((colorNew == "mark_p") & (colorOld == ".."))) {
+        if (((colorNew.equals("mark_p")) & (colorOld.equals("mark_p"))) || ((colorNew.equals("mark_p")) & (colorOld.equals("..")))) {
             colorMix = "mark_p";
         }
 
-        if (((colorNew == "mark_a") & (colorOld == "mark_d")) || ((colorNew == "mark_d") & (colorOld == "mark_a"))) {
+        if (((colorNew.equals("mark_a")) & (colorOld.equals("mark_d"))) || ((colorNew.equals("mark_d")) & (colorOld.equals("mark_a")))) {
             colorMix = "mark_ad";
         }
-        if (((colorNew == "mark_a") & (colorOld == "mark_p")) || ((colorNew == "mark_p") & (colorOld == "mark_a"))) {
+        if (((colorNew.equals("mark_a")) & (colorOld.equals("mark_p"))) || ((colorNew.equals("mark_p")) & (colorOld.equals("mark_a")))) {
             colorMix = "mark_ap";
         }
-        if (((colorNew == "mark_d") & (colorOld == "mark_p")) || ((colorNew == "mark_p") & (colorOld == "mark_d"))) {
+        if (((colorNew.equals("mark_d")) & (colorOld.equals("mark_p"))) || ((colorNew.equals("mark_p")) & (colorOld.equals("mark_d")))) {
             colorMix = "mark_dp";
         }
 
-        if (((colorNew == "mark_ad") & (colorOld == "mark_a")) || ((colorNew == "mark_a") & (colorOld == "mark_ad"))) {
+        if (((colorNew.equals("mark_ad")) & (colorOld.equals("mark_a"))) || ((colorNew.equals("mark_a")) & (colorOld.equals("mark_ad")))) {
             colorMix = "mark_ada";
         }
-        if (((colorNew == "mark_ad") & (colorOld == "mark_d")) || ((colorNew == "mark_d") & (colorOld == "mark_ad"))) {
+        if (((colorNew.equals("mark_ad")) & (colorOld.equals("mark_d"))) || ((colorNew.equals("mark_d")) & (colorOld.equals("mark_ad")))) {
             colorMix = "mark_add";
         }
-        if (((colorNew == "mark_ad") & (colorOld == "mark_p")) || ((colorNew == "mark_p") & (colorOld == "mark_ad"))) {
+        if (((colorNew.equals("mark_ad")) & (colorOld.equals("mark_p"))) || ((colorNew.equals("mark_p")) & (colorOld.equals("mark_ad")))) {
             colorMix = "mark_adp";
         }
 
-        if (((colorNew == "mark_dp") & (colorOld == "mark_a")) || ((colorNew == "mark_a") & (colorOld == "mark_dp"))) {
+        if (((colorNew.equals("mark_dp")) & (colorOld.equals("mark_a"))) || ((colorNew.equals("mark_a")) & (colorOld.equals("mark_dp")))) {
             colorMix = "mark_dpa";
         }
-        if (((colorNew == "mark_dp") & (colorOld == "mark_d")) || ((colorNew == "mark_d") & (colorOld == "mark_dp"))) {
+        if (((colorNew.equals("mark_dp")) & (colorOld.equals("mark_d"))) || ((colorNew.equals("mark_d")) & (colorOld.equals("mark_dp")))) {
             colorMix = "mark_dpd";
         }
-        if (((colorNew == "mark_dp") & (colorOld == "mark_p")) || ((colorNew == "mark_p") & (colorOld == "mark_dp"))) {
+        if (((colorNew.equals("mark_dp")) & (colorOld.equals("mark_p"))) || ((colorNew.equals("mark_p")) & (colorOld.equals("mark_dp")))) {
             colorMix = "mark_dpp";
         }
 
-        if (((colorNew == "mark_ap") & (colorOld == "mark_a")) || ((colorNew == "mark_a") & (colorOld == "mark_ap"))) {
+        if (((colorNew.equals("mark_ap")) & (colorOld.equals("mark_a"))) || ((colorNew.equals("mark_a")) & (colorOld.equals("mark_ap")))) {
             colorMix = "mark_apa";
         }
-        if (((colorNew == "mark_ap") & (colorOld == "mark_d")) || ((colorNew == "mark_d") & (colorOld == "mark_ap"))) {
+        if (((colorNew.equals("mark_ap")) & (colorOld.equals("mark_d"))) || ((colorNew.equals("mark_d")) & (colorOld.equals("mark_ap")))) {
             colorMix = "mark_apd";
         }
-        if (((colorNew == "mark_ap") & (colorOld == "mark_p")) || ((colorNew == "mark_p") & (colorOld == "mark_ap"))) {
+        if (((colorNew.equals("mark_ap")) & (colorOld.equals("mark_p"))) || ((colorNew.equals("mark_p")) & (colorOld.equals("mark_ap")))) {
             colorMix = "mark_app";
         }
 
