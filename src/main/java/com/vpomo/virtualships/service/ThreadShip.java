@@ -16,12 +16,6 @@ public class ThreadShip implements Runnable {
     private Ship ship;
     private ShipServiceImpl shipService;
 
-//    @Autowired
-//    public ThreadShip(ShipService shipService) {
-//        this.shipService = shipService;
-//    }
-
-
     public ThreadShip (String threadName, String typeShip, ControlValues controlValues, Square square, int numberTypeShip, int numberThread) {
         this.name = threadName;
         this.square = square;

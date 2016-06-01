@@ -3,8 +3,7 @@ app.factory('dataService', function ($http, $q) {
     return {
         getData: function () {
             var deferred = $q.defer();
-            //$http({method: 'GET', url: 'http://localhost:8080/restful/getall/'}).
-            $http({method: 'GET', url: getContextPath() + '/restful/getall/'}).
+            $http({method: 'GET', url: 'http://localhost:8080/restful/getall/'}).
             success(function (data, status, headers, config) {
                 deferred.resolve(data);
             })
@@ -52,8 +51,7 @@ app.controller('squareController', function ($scope, $http, $interval, dataServi
         if (!$scope.testNumberShip()) {
             var request = {
                 method: 'POST',
-                //url: 'http://localhost:8080/restful/start',
-                url: getContextPath() + '/restful/start',
+                url: 'http://localhost:8080/restful/start',
                 headers: {'Content-Type': 'application/json; charset: UTF-8'},
                 data: angular.toJson(numberShip)
             }
@@ -92,8 +90,7 @@ app.controller('squareController', function ($scope, $http, $interval, dataServi
         $scope.flagStarting = false;
         var request = {
             method: 'POST',
-            //url: 'http://localhost:8080/restful/stop',
-            url: getContextPath + '/restful/stop',
+            url: 'http://localhost:8080/restful/stop',
             headers: {'Content-Type': 'application/json; charset: UTF-8'},
             data: $scope.flagStarting
         }
@@ -102,15 +99,13 @@ app.controller('squareController', function ($scope, $http, $interval, dataServi
             data = $scope.flagStarting;
         })
         .error(function (data, status, headers, config) {
-            //  
         });
     }
 
     $scope.initialSquare = function () {
         var request = {
             method: 'POST',
-            //url: 'http://localhost:8080/restful/clear',
-            url: getContextPath() + '/restful/clear',
+            url: 'http://localhost:8080/restful/clear',
             headers: {'Content-Type': 'application/json; charset: UTF-8'},
             data: $scope.flagStarting
         }
@@ -137,7 +132,4 @@ function createSquare(width, height) {
         grid.push(row);
     }
     return grid;
-}
-function getContextPath() {
-    return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
 }

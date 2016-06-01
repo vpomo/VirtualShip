@@ -36,7 +36,6 @@ public class ShipServiceImpl implements ShipService {
         currentCoordinateY = ship.getCoordinateY();
         typeShip = ship.getTypeShip();
 
-        //System.out.println("currentX= " + currentCoordinateX + " currentY= " + currentCoordinateY);
         switch (typeShip) {
             case "typeA":
                 directionMoveShip = nextMove.nextInt(8);
@@ -73,9 +72,6 @@ public class ShipServiceImpl implements ShipService {
         square.setPreviousColorCell(nextCoordinateX, nextCoordinateY, colorOldForShip);
         square.setColorCell(nextCoordinateX,nextCoordinateY, colorShip);
         square.setNumberTimesCell(nextCoordinateX,nextCoordinateY,5);
-
-        //System.out.println("nextX= " + nextCoordinateX + " nextY= " + nextCoordinateY);
-
     }
 
     private String calculateColorMark(String colorNew, String colorOld) {
@@ -131,7 +127,6 @@ public class ShipServiceImpl implements ShipService {
             colorMix = "mark_app";
         }
 
-        //System.out.println("colorNew=" + colorNew + " colorOld=" + colorOld + " colorMix=" + colorMix);
         return colorMix;
     }
 
@@ -310,5 +305,4 @@ public class ShipServiceImpl implements ShipService {
         }
         return moveY;
     }
-
 }

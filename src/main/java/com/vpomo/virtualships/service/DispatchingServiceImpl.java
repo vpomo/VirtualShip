@@ -13,7 +13,6 @@ import static com.vpomo.virtualships.service.ControlValues.MAX_NUMBER_SHIPS;
  */
 @Service
 public class DispatchingServiceImpl implements DispatchingService {
-    //public static volatile Square square;
     public ControlValues controlValues;
 
     public void startMovingShips(int numberShipTypeA, int numberShipTypeD, int numberShipTypeP, ControlValues controlValues) throws InterruptedException {
@@ -23,10 +22,8 @@ public class DispatchingServiceImpl implements DispatchingService {
         if (controlValues.square == null) {
             controlValues.square = new Square();
         } else {
-            //controlValues.square.clearSquare();
         }
 
-        //this.square = square;
         if ((numberShipTypeA > 0) & (numberShipTypeA < MAX_NUMBER_SHIPS) ) {
            for (int n = numberShipTypeA; n > 0; n--) {
                threadName = "typeA-№" + n;
@@ -58,7 +55,6 @@ public class DispatchingServiceImpl implements DispatchingService {
             for (int j = 0; j < MAX_NUMBER_SHIPS; j++){
                 if (controlValues.arrayThreadShip[i][j] != null) {
                     controlValues.arrayThreadShip[i][j].join();
-                    //System.out.println("!!!!!!=" + i + j);
                 }
             }
         }
