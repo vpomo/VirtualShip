@@ -3,7 +3,8 @@ app.factory('dataService', function ($http, $q) {
     return {
         getData: function () {
             var deferred = $q.defer();
-            $http({method: 'GET', url: 'http://localhost:8080/restful/getall/'}).
+            var getAllURL = "http://" + window.location.host + "/restful/getall";
+            $http({method: 'GET', url: getAllURL}).
             success(function (data, status, headers, config) {
                 deferred.resolve(data);
             })
@@ -26,8 +27,7 @@ app.controller('squareController', function ($scope, $http, $interval, dataServi
     $scope.numberShipTypeD = 0;
     $scope.numberShipTypeP = 0;
     $scope.errorMessage = "";
-
-
+    var siteURL = "http://" + window.location.host + "/";
     $interval( function(){ $scope.load(); }, 200);
 
     $scope.load = function () {
@@ -43,6 +43,7 @@ app.controller('squareController', function ($scope, $http, $interval, dataServi
     }
 
     $scope.startMoving = function () {
+        var startURL = siteURL + "restful/start";
         numberShip = {
             numberShipTypeA: $scope.numberShipTypeA,
             numberShipTypeD: $scope.numberShipTypeD,
@@ -51,7 +52,7 @@ app.controller('squareController', function ($scope, $http, $interval, dataServi
         if (!$scope.testNumberShip()) {
             var request = {
                 method: 'POST',
-                url: 'http://localhost:8080/restful/start',
+                url: startURL,
                 headers: {'Content-Type': 'application/json; charset: UTF-8'},
                 data: angular.toJson(numberShip)
             }
@@ -88,13 +89,13 @@ app.controller('squareController', function ($scope, $http, $interval, dataServi
 
     $scope.stopMoving = function () {
         $scope.flagStarting = false;
+        var stopURL = siteURL + "restful/stop";
         var request = {
             method: 'POST',
-            url: 'http://localhost:8080/restful/stop',
+            url: stopURL,
             headers: {'Content-Type': 'application/json; charset: UTF-8'},
             data: $scope.flagStarting
         }
-
         $http(request).success(function (data) {
             data = $scope.flagStarting;
         })
@@ -103,9 +104,10 @@ app.controller('squareController', function ($scope, $http, $interval, dataServi
     }
 
     $scope.initialSquare = function () {
+        var clearURL = siteURL + "restful/clear";
         var request = {
             method: 'POST',
-            url: 'http://localhost:8080/restful/clear',
+            url: clearURL,
             headers: {'Content-Type': 'application/json; charset: UTF-8'},
             data: $scope.flagStarting
         }
